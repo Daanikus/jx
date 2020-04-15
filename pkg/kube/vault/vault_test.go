@@ -16,6 +16,7 @@ import (
 )
 
 func TestCreateOrUpdateVault_with_no_preexisting_CRD_creates_vault(t *testing.T) {
+t.Parallel()
 	namespace := "test-ns"
 	vaultName := "foo-vault"
 
@@ -51,6 +52,7 @@ func TestCreateOrUpdateVault_with_no_preexisting_CRD_creates_vault(t *testing.T)
 }
 
 func TestCreateOrUpdateVault_with_preexisting_CRD_updates_vault(t *testing.T) {
+t.Parallel()
 	namespace := "test-ns"
 	vaultName := "foo-vault"
 

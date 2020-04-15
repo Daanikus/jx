@@ -10,6 +10,7 @@ import (
 )
 
 func TestJenkinsfileWriter(t *testing.T) {
+t.Parallel()
 	expectedValue := `container('maven') {
   dir('/foo/bar') {
     sh "ls -al"

@@ -56,6 +56,7 @@ const (
 var timeout = 5 * time.Second
 
 func TestAddAppForGitOps(t *testing.T) {
+t.Parallel()
 	tests.Retry(t, 1, time.Second*10, func(r *tests.R) {
 		testOptions := testhelpers.CreateAppTestOptions(true, "", r)
 		defer func() {
@@ -130,6 +131,7 @@ func TestAddAppForGitOps(t *testing.T) {
 }
 
 func TestAddAppForGitOpsWithShortName(t *testing.T) {
+t.Parallel()
 	tests.Retry(t, 1, time.Second*10, func(r *tests.R) {
 		testOptions := testhelpers.CreateAppTestOptions(true, "", r)
 		defer func() {
@@ -216,6 +218,7 @@ func TestAddAppForGitOpsWithShortName(t *testing.T) {
 }
 
 func TestAddAppWithSecrets(t *testing.T) {
+t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
@@ -365,6 +368,7 @@ func TestAddAppWithSecrets(t *testing.T) {
 }
 
 func TestAddAppWithDefaults(t *testing.T) {
+t.Parallel()
 
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	pegomock.RegisterMockTestingT(t)
@@ -498,6 +502,7 @@ func TestAddAppWithDefaults(t *testing.T) {
 }
 
 func TestStashValues(t *testing.T) {
+t.Parallel()
 	namespace := "jx"
 
 	tests.SkipForWindows(t, "go-expect does not work on windows")
@@ -579,6 +584,7 @@ func TestStashValues(t *testing.T) {
 }
 
 func TestAddAppForGitOpsWithSecrets(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
@@ -679,6 +685,7 @@ func TestAddAppForGitOpsWithSecrets(t *testing.T) {
 }
 
 func TestAddApp(t *testing.T) {
+t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 	// Can't run in parallel
 	pegomock.RegisterMockTestingT(t)
@@ -736,6 +743,7 @@ func TestAddApp(t *testing.T) {
 }
 
 func TestAddAppWithShortName(t *testing.T) {
+t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 	// Can't run in parallel
 	pegomock.RegisterMockTestingT(t)
@@ -808,6 +816,7 @@ func TestAddAppWithShortName(t *testing.T) {
 }
 
 func TestAddAppFromPath(t *testing.T) {
+t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 	// Can't run in parallel
 	pegomock.RegisterMockTestingT(t)
@@ -868,6 +877,7 @@ func TestAddAppFromPath(t *testing.T) {
 }
 
 func TestAddLatestApp(t *testing.T) {
+t.Parallel()
 
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 	// Can't run in parallel
@@ -928,6 +938,7 @@ func TestAddLatestApp(t *testing.T) {
 }
 
 func TestAddAppWithValuesFileForGitOps(t *testing.T) {
+t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(true, "", t)
 	defer func() {
 		err := testOptions.Cleanup()
@@ -988,6 +999,7 @@ func TestAddAppWithValuesFileForGitOps(t *testing.T) {
 }
 
 func TestAddAppWithReadmeForGitOps(t *testing.T) {
+t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(true, "", t)
 	defer func() {
 		err := testOptions.Cleanup()
@@ -1075,6 +1087,7 @@ func TestAddAppWithReadmeForGitOps(t *testing.T) {
 }
 
 func TestAddAppWithCustomReadmeForGitOps(t *testing.T) {
+t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(true, "", t)
 	defer func() {
 		err := testOptions.Cleanup()
@@ -1141,6 +1154,7 @@ func TestAddAppWithCustomReadmeForGitOps(t *testing.T) {
 }
 
 func TestAddLatestAppForGitOps(t *testing.T) {
+t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(true, "", t)
 	defer func() {
 		err := testOptions.Cleanup()
@@ -1202,6 +1216,7 @@ func TestAddLatestAppForGitOps(t *testing.T) {
 }
 
 func TestAddAppIncludingConditionalQuestionsForGitOps(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	tests.Retry(t, 1, time.Second*10, func(r *tests.R) {
@@ -1313,6 +1328,7 @@ enablePersistentStorage: true
 }
 
 func TestAddAppExcludingConditionalQuestionsForGitOps(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
@@ -1404,6 +1420,7 @@ func TestAddAppExcludingConditionalQuestionsForGitOps(t *testing.T) {
 }
 
 func TestAddAppForGitOpsWithSNAPSHOTVersion(t *testing.T) {
+t.Parallel()
 	tests.Retry(t, 1, time.Second*10, func(r *tests.R) {
 		testOptions := testhelpers.CreateAppTestOptions(true, "", r)
 		defer func() {

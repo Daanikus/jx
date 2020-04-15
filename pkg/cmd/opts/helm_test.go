@@ -19,6 +19,7 @@ import (
 // Test_HelmInitRecursiveDependencyBuild_extraction tests that chart achives
 // are properly extracted
 func Test_HelmInitRecursiveDependencyBuild_extraction(t *testing.T) {
+t.Parallel()
 	o := NewCommonOptionsWithFactory(clients.NewFactory())
 
 	dir, err := ioutil.TempDir("", "dowload_test")
@@ -68,6 +69,7 @@ func Test_HelmInitRecursiveDependencyBuild_extraction(t *testing.T) {
 // Test_HelmInitDependencyBuild_lint tests that the lint phase
 // passes the required variables
 func Test_HelmInitDependencyBuild_lint(t *testing.T) {
+t.Parallel()
 	o := NewCommonOptionsWithFactory(clients.NewFactory())
 
 	dir, err := ioutil.TempDir("", "lint_test")

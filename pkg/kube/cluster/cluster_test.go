@@ -22,6 +22,7 @@ func TestGetSimplifiedClusterName(t *testing.T) {
 }
 
 func TestShortClusterName(t *testing.T) {
+t.Parallel()
 	kuber := kube_test.NewMockKuber()
 
 	config := api.Config{
@@ -65,6 +66,7 @@ func TestShortClusterName(t *testing.T) {
 }
 
 func TestClusterName(t *testing.T) {
+t.Parallel()
 	kuber := kube_test.NewMockKuber()
 
 	config := api.Config{
@@ -82,6 +84,7 @@ func TestClusterName(t *testing.T) {
 }
 
 func TestSystemVaultNameForCluster(t *testing.T) {
+t.Parallel()
 	actual := vault.SystemVaultNameForCluster("jstrachan-kp38")
 	assert.Equal(t, "jx-vault-jstrachan-kp3", actual, "system vault name")
 }

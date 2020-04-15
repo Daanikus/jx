@@ -76,6 +76,7 @@ const (
 )
 
 func TestPipelineRunner(t *testing.T) {
+t.Parallel()
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Pipeline Runner Test Suite")
 }

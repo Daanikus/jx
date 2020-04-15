@@ -25,6 +25,7 @@ const (
 )
 
 func TestDeleteAppForGitOps(t *testing.T) {
+t.Parallel()
 	nameUUID, err := uuid.NewV4()
 	assert.NoError(t, err)
 	name := nameUUID.String()
@@ -70,6 +71,7 @@ func TestDeleteAppForGitOps(t *testing.T) {
 }
 
 func TestDeleteAppWithShortNameForGitOps(t *testing.T) {
+t.Parallel()
 	nameUUID, err := uuid.NewV4()
 	assert.NoError(t, err)
 	name := nameUUID.String()
@@ -116,6 +118,7 @@ func TestDeleteAppWithShortNameForGitOps(t *testing.T) {
 }
 
 func TestDeleteApp(t *testing.T) {
+t.Parallel()
 
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 	name, _, _, err := testOptions.AddApp(make(map[string]interface{}), "")
@@ -141,6 +144,7 @@ func TestDeleteApp(t *testing.T) {
 }
 
 func TestDeleteAppWithShortName(t *testing.T) {
+t.Parallel()
 
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 	name, _, _, err := testOptions.AddApp(make(map[string]interface{}), "")

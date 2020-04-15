@@ -19,6 +19,7 @@ import (
 )
 
 func TestStepWaitForChart(t *testing.T) {
+t.Parallel()
 	nameUUID, err := uuid.NewV4()
 	assert.NoError(t, err)
 

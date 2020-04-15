@@ -24,6 +24,7 @@ import (
 )
 
 func TestRetry(t *testing.T) {
+t.Parallel()
 	tests.Retry(t, 5, time.Millisecond, func(r *tests.R) {
 		if r.Attempt == 2 {
 			return
@@ -33,6 +34,7 @@ func TestRetry(t *testing.T) {
 }
 
 func TestRetryAttempts(t *testing.T) {
+t.Parallel()
 	var attempts int
 	tests.Retry(t, 10, time.Millisecond, func(r *tests.R) {
 		r.Logf("This line should appear only once.")

@@ -25,6 +25,7 @@ import (
 )
 
 func TestSystem(t *testing.T) {
+t.Parallel()
 	disableCoverage := os.Getenv("COVER_JX_BINARY") == "false"
 	if !disableCoverage {
 		disableSelfUpload := os.Getenv("COVER_SELF_UPLOAD") == "false"

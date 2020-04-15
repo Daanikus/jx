@@ -71,6 +71,7 @@ func (m mockedS3) CreateBucket(input *s3.CreateBucketInput) (*s3.CreateBucketOut
 }
 
 func TestAmazonBucketProvider_EnsureBucketIsCreated(t *testing.T) {
+t.Parallel()
 	p := AmazonBucketProvider{
 		Requirements: &config.RequirementsConfig{
 			Cluster: config.ClusterConfig{
@@ -106,6 +107,7 @@ func TestAmazonBucketProvider_EnsureBucketIsCreated(t *testing.T) {
 }
 
 func TestAmazonBucketProvider_CreateNewBucketForCluster(t *testing.T) {
+t.Parallel()
 	p := AmazonBucketProvider{
 		Requirements: &config.RequirementsConfig{
 			Cluster: config.ClusterConfig{
@@ -133,6 +135,7 @@ func TestAmazonBucketProvider_CreateNewBucketForCluster(t *testing.T) {
 }
 
 func TestAmazonBucketProvider_s3(t *testing.T) {
+t.Parallel()
 	p := AmazonBucketProvider{
 		Requirements: &config.RequirementsConfig{
 			Cluster: config.ClusterConfig{
@@ -147,6 +150,7 @@ func TestAmazonBucketProvider_s3(t *testing.T) {
 }
 
 func TestAmazonBucketProvider_s3WithNoRegion(t *testing.T) {
+t.Parallel()
 	p := AmazonBucketProvider{
 		Requirements: &config.RequirementsConfig{},
 	}
@@ -157,6 +161,7 @@ func TestAmazonBucketProvider_s3WithNoRegion(t *testing.T) {
 }
 
 func TestAmazonBucketProvider_UploadFileToBucket(t *testing.T) {
+t.Parallel()
 	p := AmazonBucketProvider{
 		Requirements: &config.RequirementsConfig{
 			Cluster: config.ClusterConfig{
@@ -173,6 +178,7 @@ func TestAmazonBucketProvider_UploadFileToBucket(t *testing.T) {
 }
 
 func TestAmazonBucketProvider_DownloadFileFromBucket(t *testing.T) {
+t.Parallel()
 	p := AmazonBucketProvider{
 		Requirements: &config.RequirementsConfig{
 			Cluster: config.ClusterConfig{

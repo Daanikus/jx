@@ -78,6 +78,7 @@ func verifyArgs(t *testing.T, cli *helm.HelmCLI, runner *mocks.MockCommander, ex
 }
 
 func TestNewHelmCLI(t *testing.T) {
+t.Parallel()
 	cli := helm.NewHelmCLI(binary, helm.V2, cwd, true, "arg1 arg2 arg3")
 	assert.Equal(t, binary, cli.Binary)
 	assert.Equal(t, cwd, cli.CWD)
@@ -90,6 +91,7 @@ func TestNewHelmCLI(t *testing.T) {
 }
 
 func TestInit(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"init", "--client-only", "--service-account", serviceAccount,
 		"--tiller-namespace", namespace, "--upgrade", "--wait", "--force-upgrade"}
 	helm, runner := createHelm(t, nil, "")
@@ -101,6 +103,7 @@ func TestInit(t *testing.T) {
 }
 
 func TestAddRepo(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"repo", "add", repo, repoURL}
 	helm, runner := createHelm(t, nil, "")
 
@@ -111,6 +114,7 @@ func TestAddRepo(t *testing.T) {
 }
 
 func TestRemoveRepo(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"repo", "remove", repo}
 	helm, runner := createHelm(t, nil, "")
 
@@ -121,6 +125,7 @@ func TestRemoveRepo(t *testing.T) {
 }
 
 func TestListRepos(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"repo", "list"}
 	helm, runner := createHelm(t, nil, listRepoOutput)
 
@@ -139,6 +144,7 @@ func TestListRepos(t *testing.T) {
 }
 
 func TestIsRepoMissing(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"repo", "list"}
 	helm, runner := createHelm(t, nil, listRepoOutput)
 
@@ -163,6 +169,7 @@ func TestIsRepoMissing(t *testing.T) {
 }
 
 func TestUpdateRepo(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"repo", "update"}
 	helm, runner := createHelm(t, nil, "")
 
@@ -173,6 +180,7 @@ func TestUpdateRepo(t *testing.T) {
 }
 
 func TestRemoveRequirementsLock(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "reqtest")
 	assert.NoError(t, err, "should be able to create a temporary dir")
 	defer os.RemoveAll(dir)
@@ -186,6 +194,7 @@ func TestRemoveRequirementsLock(t *testing.T) {
 }
 
 func TestBuildDependency(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"dependency", "build"}
 	helm, runner := createHelm(t, nil, "")
 
@@ -195,6 +204,7 @@ func TestBuildDependency(t *testing.T) {
 }
 
 func TestInstallChart(t *testing.T) {
+t.Parallel()
 	value := []string{"test=true"}
 	valueString := []string{"context=test"}
 	valueFile := []string{"./myvalues.yaml"}
@@ -208,6 +218,7 @@ func TestInstallChart(t *testing.T) {
 }
 
 func TestUpgradeChart(t *testing.T) {
+t.Parallel()
 	value := []string{"test=true"}
 	valueString := []string{"context=test"}
 	valueFile := []string{"./myvalues.yaml"}
@@ -224,6 +235,7 @@ func TestUpgradeChart(t *testing.T) {
 }
 
 func TestDeleteRelaese(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"delete", "--purge", releaseName}
 	helm, runner := createHelm(t, nil, "")
 	ns := "default"
@@ -235,6 +247,7 @@ func TestDeleteRelaese(t *testing.T) {
 }
 
 func TestStatusRelease(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"status", releaseName}
 	helm, runner := createHelm(t, nil, "")
 	ns := "default"
@@ -246,6 +259,7 @@ func TestStatusRelease(t *testing.T) {
 }
 
 func TestStatusReleaseWithOutputNoFormat(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"status", releaseName}
 	helm, runner := createHelm(t, nil, "")
 	ns := "default"
@@ -257,6 +271,7 @@ func TestStatusReleaseWithOutputNoFormat(t *testing.T) {
 }
 
 func TestStatusReleaseWithOutputWithFormat(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"status", releaseName, "--output", "json"}
 	helm, runner := createHelm(t, nil, "")
 	ns := "default"
@@ -268,6 +283,7 @@ func TestStatusReleaseWithOutputWithFormat(t *testing.T) {
 }
 
 func TestStatusReleases(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"list", "--all", "--namespace", "default"}
 	expectedStatusMap := map[string]string{
 		"jenkins-x":      "DEPLOYED",
@@ -290,6 +306,7 @@ func TestStatusReleases(t *testing.T) {
 }
 
 func TestStatusReleasesForHelm3(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"list", "--all", "--namespace", "default"}
 	expectedStatusMap := map[string]string{
 		"jxing": "DEPLOYED",
@@ -308,6 +325,7 @@ func TestStatusReleasesForHelm3(t *testing.T) {
 }
 
 func TestLint(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"lint",
 		"--set", "tags.jx-lint=true",
 		"--set", "global.jxLint=true",
@@ -324,6 +342,7 @@ func TestLint(t *testing.T) {
 }
 
 func TestVersion(t *testing.T) {
+t.Parallel()
 	var versionTests = []struct {
 		versionString           string
 		expectedSemanticVersion string
@@ -354,6 +373,7 @@ func TestVersion(t *testing.T) {
 }
 
 func TestSearchChartVersions(t *testing.T) {
+t.Parallel()
 	expectedOutput := searchVersionOutput
 	expectedArgs := []string{"search", chart, "--versions"}
 	helm, runner := createHelm(t, nil, expectedOutput)
@@ -369,6 +389,7 @@ func TestSearchChartVersions(t *testing.T) {
 }
 
 func TestFindChart(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "charttest")
 	assert.NoError(t, err, "should be able to create a temporary dir")
 	defer os.RemoveAll(dir)
@@ -383,6 +404,7 @@ func TestFindChart(t *testing.T) {
 }
 
 func TestPackage(t *testing.T) {
+t.Parallel()
 	expectedArgs := []string{"package", cwd}
 	helm, runner := createHelm(t, nil, "")
 

@@ -21,6 +21,7 @@ func cleanEnvs(t *testing.T, envs []string) {
 }
 
 func TestCreateAuthUserFromEnvironment(t *testing.T) {
+t.Parallel()
 	const prefix = "TEST"
 	tests := map[string]struct {
 		prefix  string
@@ -108,6 +109,7 @@ func TestCreateAuthUserFromEnvironment(t *testing.T) {
 }
 
 func TestIsInvalid(t *testing.T) {
+t.Parallel()
 	tests := map[string]struct {
 		user *auth.UserAuth
 		want bool

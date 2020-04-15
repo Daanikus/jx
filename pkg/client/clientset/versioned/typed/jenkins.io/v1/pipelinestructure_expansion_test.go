@@ -22,6 +22,7 @@ var (
 )
 
 func TestPatchUpdatePipelineStructureNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testPipelineStructure)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -47,6 +48,7 @@ func TestPatchUpdatePipelineStructureNoModification(t *testing.T) {
 }
 
 func TestPatchUpdatePipelineStructureWithChange(t *testing.T) {
+t.Parallel()
 	ref := "susfu"
 	clonedPipelineStructure := testPipelineStructure.DeepCopy()
 	clonedPipelineStructure.PipelineRef = &ref
@@ -81,6 +83,7 @@ func TestPatchUpdatePipelineStructureWithChange(t *testing.T) {
 }
 
 func TestPatchUpdatePipelineStructureWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -100,6 +103,7 @@ func TestPatchUpdatePipelineStructureWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdatePipelineStructureWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testPipelineStructure)

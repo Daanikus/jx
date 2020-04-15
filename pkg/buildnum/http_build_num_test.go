@@ -18,6 +18,7 @@ import (
 )
 
 func TestVendGET(t *testing.T) {
+t.Parallel()
 	mockIssuer := build_num_test.NewMockBuildNumberIssuer()
 	pID := kube.NewPipelineIDFromString("owner1/repo1/branch1")
 	expectedBuildNum := "3"
@@ -31,6 +32,7 @@ func TestVendGET(t *testing.T) {
 }
 
 func TestVendGETMissingPipeline(t *testing.T) {
+t.Parallel()
 	mockIssuer := build_num_test.NewMockBuildNumberIssuer()
 	pID := kube.NewPipelineIDFromString("")
 	expectedBuildNum := "543"
@@ -42,6 +44,7 @@ func TestVendGETMissingPipeline(t *testing.T) {
 }
 
 func TestVendUnsupportedMethod(t *testing.T) {
+t.Parallel()
 	mockIssuer := build_num_test.NewMockBuildNumberIssuer()
 
 	respRecord := makeVendRequest(t, http.MethodDelete, "/vend/a/b/c", mockIssuer)
@@ -50,6 +53,7 @@ func TestVendUnsupportedMethod(t *testing.T) {
 }
 
 func TestVendError(t *testing.T) {
+t.Parallel()
 	mockIssuer := build_num_test.NewMockBuildNumberIssuer()
 	err := errors.New("something bad getting a build number")
 	When(mockIssuer.NextBuildNumber(matchers.AnyKubePipelineID())).ThenReturn("", err)

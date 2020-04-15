@@ -22,6 +22,7 @@ import (
 )
 
 func TestGetActivity(t *testing.T) {
+t.Parallel()
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Get Activity Suite")
 }

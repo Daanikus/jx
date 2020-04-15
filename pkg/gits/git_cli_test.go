@@ -23,6 +23,7 @@ import (
 )
 
 func TestGitCLI(t *testing.T) {
+t.Parallel()
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Git CLI Test Suite")
 }
@@ -662,6 +663,7 @@ var _ = Describe("Git CLI", func() {
 })
 
 func TestTags(t *testing.T) {
+t.Parallel()
 	gitter := gits.NewGitCLI()
 	dir, err := ioutil.TempDir("", "")
 	assert.NoError(t, err)
@@ -691,6 +693,7 @@ func TestTags(t *testing.T) {
 }
 
 func TestGitCLI_Stash(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		name        string
 		g           *gits.GitCLI
@@ -781,6 +784,7 @@ func TestGitCLI_Stash(t *testing.T) {
 }
 
 func TestGitCLI_Remotes(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		initFn  func(dir string, gitter gits.Gitter) error
 		name    string
@@ -834,6 +838,7 @@ func TestGitCLI_Remotes(t *testing.T) {
 }
 
 func TestDescribe(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		initFn   func(dir string, gitter gits.Gitter) error
 		name     string

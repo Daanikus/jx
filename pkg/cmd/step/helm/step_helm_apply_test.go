@@ -25,6 +25,7 @@ import (
 )
 
 func TestApplyAppsTemplateOverrides(t *testing.T) {
+t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(true, "dummy", t)
 	_, _, _, err := testOptions.AddApp(nil, "")
 	assert.NoError(t, err)

@@ -33,6 +33,7 @@ const (
 )
 
 func TestStartProtection(t *testing.T) {
+t.Parallel()
 	o := start.StartProtectionOptions{
 		CommonOptions: &opts.CommonOptions{},
 	}

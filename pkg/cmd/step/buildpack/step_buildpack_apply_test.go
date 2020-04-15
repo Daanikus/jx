@@ -125,6 +125,7 @@ func TestSavePipelineConfig(t *testing.T) {
 }
 
 func TestParsePipelineConfig(t *testing.T) {
+t.Parallel()
 	pipelineFile := path.Join("test_data", "step_buildpack_apply", jenkinsfile.PipelineConfigFileName)
 	assert.FileExists(t, pipelineFile)
 
@@ -136,6 +137,7 @@ func TestParsePipelineConfig(t *testing.T) {
 }
 
 func TestParseLongerPipelineConfig(t *testing.T) {
+t.Parallel()
 	pipelineFile := path.Join("test_data", "step_buildpack_apply", "simple", jenkinsfile.PipelineConfigFileName)
 	assert.FileExists(t, pipelineFile)
 

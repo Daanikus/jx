@@ -12,6 +12,7 @@ import (
 )
 
 func TestGetPipelineRunPods(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data", "get_pipelinerun_pods")
 
 	podsList := tekton_helpers_test.AssertLoadPods(t, testCaseDir)

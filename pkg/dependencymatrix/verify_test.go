@@ -10,6 +10,7 @@ import (
 )
 
 func TestVerifyDependencyMatrixHasConsistentVersions(t *testing.T) {
+t.Parallel()
 	type args struct {
 		dir string
 	}

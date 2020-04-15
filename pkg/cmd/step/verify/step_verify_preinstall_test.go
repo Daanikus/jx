@@ -82,6 +82,7 @@ func Test_confirm_private_repos_with_github_provider(t *testing.T) {
 }
 
 func Test_doesnt_ask_for_confirmation_when_in_gke(t *testing.T) {
+t.Parallel()
 	r, fakeStdout, _ := os.Pipe()
 	log.SetOutput(fakeStdout)
 
@@ -114,6 +115,7 @@ func Test_doesnt_ask_for_confirmation_when_in_gke(t *testing.T) {
 }
 
 func Test_doesnt_ask_for_confirmation_when_in_batch_mode_and_with_different_provider(t *testing.T) {
+t.Parallel()
 	r, fakeStdout, _ := os.Pipe()
 	log.SetOutput(fakeStdout)
 
@@ -225,6 +227,7 @@ func Test_abort_private_repos_with_github_provider(t *testing.T) {
 }
 
 func TestGatherRequirements_PreserveEnvironmentGitOwnerCase(t *testing.T) {
+t.Parallel()
 	tempDir, err := ioutil.TempDir("", "test-step-verify-preinstall-")
 	require.NoError(t, err)
 
@@ -264,6 +267,7 @@ func TestGatherRequirements_PreserveEnvironmentGitOwnerCase(t *testing.T) {
 }
 
 func TestGatherRequirements_DevEnvApprovers(t *testing.T) {
+t.Parallel()
 	tempDir, err := ioutil.TempDir("", "test-step-verify-preinstall-")
 	require.NoError(t, err)
 
@@ -327,6 +331,7 @@ func TestGatherRequirements_DevEnvApprovers(t *testing.T) {
 }
 
 func TestGatherRequirements_SetsDefaults(t *testing.T) {
+t.Parallel()
 	tempDir, err := ioutil.TempDir("", "test-step-verify-preinstall-")
 	require.NoError(t, err)
 

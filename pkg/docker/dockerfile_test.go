@@ -18,6 +18,7 @@ import (
 )
 
 func TestUpdateVersions(t *testing.T) {
+t.Parallel()
 	tmpDirs := make([]string, 0)
 	defer func() {
 		for _, dir := range tmpDirs {

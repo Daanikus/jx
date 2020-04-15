@@ -18,6 +18,7 @@ import (
 )
 
 func TestSetReplicatorAnnotationsNoExistingAnnotations(t *testing.T) {
+t.Parallel()
 
 	existingAnnotations := make(map[string]string)
 	namespacesToReplicate := []string{"staging", "production"}
@@ -28,6 +29,7 @@ func TestSetReplicatorAnnotationsNoExistingAnnotations(t *testing.T) {
 }
 
 func TestSetReplicatorAnnotationsWithExistingAnnotations(t *testing.T) {
+t.Parallel()
 
 	existingAnnotations := make(map[string]string)
 	existingAnnotations[annotationEeplicationAllowedNamespaces] = "foo"
@@ -40,6 +42,7 @@ func TestSetReplicatorAnnotationsWithExistingAnnotations(t *testing.T) {
 }
 
 func TestSetReplicatorAnnotationsWithWildcard(t *testing.T) {
+t.Parallel()
 
 	existingAnnotations := make(map[string]string)
 
@@ -51,6 +54,7 @@ func TestSetReplicatorAnnotationsWithWildcard(t *testing.T) {
 }
 
 func TestSetReplicatorAnnotationsNoDuplicates(t *testing.T) {
+t.Parallel()
 
 	existingAnnotations := make(map[string]string)
 	existingAnnotations[annotationReplicationAllowed] = "true"
@@ -64,6 +68,7 @@ func TestSetReplicatorAnnotationsNoDuplicates(t *testing.T) {
 }
 
 func TestRun(t *testing.T) {
+t.Parallel()
 	o := ReplicateOptions{
 		ReplicateToNamepace: []string{"bar"},
 		StepOptions: step.StepOptions{
@@ -118,6 +123,7 @@ func TestRun(t *testing.T) {
 }
 
 func TestRunWithWildcard(t *testing.T) {
+t.Parallel()
 	o := ReplicateOptions{
 		ReplicateToNamepace: []string{"wine*"},
 		StepOptions: step.StepOptions{

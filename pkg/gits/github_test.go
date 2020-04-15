@@ -23,6 +23,7 @@ func TestIsOwnerGitHubUser_isNotOwner(t *testing.T) {
 }
 
 func TestExtractRepositoryCommitAuthor(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		testName         string
 		commitAuthor     *github.CommitAuthor

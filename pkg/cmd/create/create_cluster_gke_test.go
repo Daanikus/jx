@@ -39,6 +39,7 @@ func Test_validateClusterName(t *testing.T) {
 }
 
 func TestAddLabel(t *testing.T) {
+t.Parallel()
 	label := AddLabel("", "created-by", "test.user")
 	assert.Equal(t, "created-by=test-user", label, "Label formed incorrectly")
 }

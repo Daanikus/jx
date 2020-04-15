@@ -33,6 +33,7 @@ const (
 )
 
 func TestEnsurePluginInstalled(t *testing.T) {
+t.Parallel()
 	// TODO plugin install must also work on windows
 	tests.SkipForWindows(t, "plugins do not work on windows - and this test will always fail."+""+
 		"it is a valid failure - but holds up windows development.  See https://github.com/jenkins-x/jx/issues/2677")
@@ -91,6 +92,7 @@ func TestEnsurePluginInstalled(t *testing.T) {
 }
 
 func serveTestScript(t *testing.T) (*http.Server, int) {
+t.Parallel()
 
 	listener, err := net.Listen("tcp", fmt.Sprintf("%s:%s", "0.0.0.0", port))
 	if err != nil {

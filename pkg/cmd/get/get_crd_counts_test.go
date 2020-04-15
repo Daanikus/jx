@@ -27,6 +27,7 @@ const (
 )
 
 func TestRun(t *testing.T) {
+t.Parallel()
 	o := CRDCountOptions{
 		CommonOptions: &opts.CommonOptions{},
 	}

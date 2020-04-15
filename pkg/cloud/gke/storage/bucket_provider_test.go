@@ -13,6 +13,7 @@ import (
 )
 
 func TestCreateNewBucketForClusterWithLongClusterNameAndDashAtCharacterSixty(t *testing.T) {
+t.Parallel()
 	p := GKEBucketProvider{
 		gcloud: gke_test.NewMockGClouder(),
 		Requirements: &config.RequirementsConfig{
@@ -31,6 +32,7 @@ func TestCreateNewBucketForClusterWithLongClusterNameAndDashAtCharacterSixty(t *
 }
 
 func TestCreateNewBucketForClusterWithSmallClusterName(t *testing.T) {
+t.Parallel()
 	p := GKEBucketProvider{
 		gcloud: gke_test.NewMockGClouder(),
 		Requirements: &config.RequirementsConfig{

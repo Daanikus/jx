@@ -13,6 +13,7 @@ import (
 )
 
 func Test_ensure_gopath_set(t *testing.T) {
+t.Parallel()
 	tmpGoDir, err := ioutil.TempDir("", "jx-codegen-tests")
 	if err != nil {
 		assert.Fail(t, "unable to create test directory")
@@ -28,6 +29,7 @@ func Test_ensure_gopath_set(t *testing.T) {
 }
 
 func Test_ensure_gopath_unset(t *testing.T) {
+t.Parallel()
 	err := os.Setenv(gopath, "")
 	if err != nil {
 		assert.Fail(t, "unable to set env variable")
@@ -39,6 +41,7 @@ func Test_ensure_gopath_unset(t *testing.T) {
 }
 
 func Test_ensure_gopath_does_not_exist(t *testing.T) {
+t.Parallel()
 	err := os.Setenv(gopath, "snafu")
 	if err != nil {
 		assert.Fail(t, "unable to set env variable")
@@ -50,6 +53,7 @@ func Test_ensure_gopath_does_not_exist(t *testing.T) {
 }
 
 func Test_get_gopath(t *testing.T) {
+t.Parallel()
 	tmpGoDir, err := ioutil.TempDir("", "jx-codegen-tests")
 	if err != nil {
 		assert.Fail(t, "unable to create test directory")
@@ -65,6 +69,7 @@ func Test_get_gopath(t *testing.T) {
 }
 
 func Test_get_gopath_unset_env(t *testing.T) {
+t.Parallel()
 	err := os.Setenv(gopath, "")
 	if err != nil {
 		assert.Fail(t, "unable to set env variable")
@@ -75,6 +80,7 @@ func Test_get_gopath_unset_env(t *testing.T) {
 }
 
 func Test_get_gopath_multiple_elements(t *testing.T) {
+t.Parallel()
 	tmpGoDir, err := ioutil.TempDir("", "jx-codegen-tests")
 	if err != nil {
 		assert.Fail(t, "unable to create test directory")
@@ -90,6 +96,7 @@ func Test_get_gopath_multiple_elements(t *testing.T) {
 }
 
 func Test_get_gopath_src(t *testing.T) {
+t.Parallel()
 	tmpGoDir, err := ioutil.TempDir("", "jx-codegen-tests")
 	if err != nil {
 		assert.Fail(t, "unable to create test directory")
@@ -105,6 +112,7 @@ func Test_get_gopath_src(t *testing.T) {
 }
 
 func Test_get_gopath_bin(t *testing.T) {
+t.Parallel()
 	tmpGoDir, err := ioutil.TempDir("", "jx-codegen-tests")
 	if err != nil {
 		assert.Fail(t, "unable to create test directory")

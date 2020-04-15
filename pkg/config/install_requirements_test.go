@@ -326,6 +326,7 @@ func TestMergeSave(t *testing.T) {
 }
 
 func Test_EnvironmentGitPublic_and_EnvironmentGitPrivate_specified_together_return_error(t *testing.T) {
+t.Parallel()
 	content, err := ioutil.ReadFile(path.Join(testDataDir, "git_public_true_git_private_true.yaml"))
 	assert.NoError(t, err)
 
@@ -410,6 +411,7 @@ func Test_LoadRequirementsConfig(t *testing.T) {
 }
 
 func TestLoadRequirementsConfig_load_invalid_yaml(t *testing.T) {
+t.Parallel()
 	testDir := path.Join(testDataDir, "jx-requirements-syntax-error")
 
 	absolute, err := filepath.Abs(testDir)

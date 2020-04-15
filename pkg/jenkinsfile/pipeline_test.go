@@ -10,6 +10,7 @@ import (
 )
 
 func TestGetLifecycleReturnsSetup(t *testing.T) {
+t.Parallel()
 	lifecycles := jenkinsfile.PipelineLifecycles{}
 	lifecycles.Setup = &jenkinsfile.PipelineLifecycle{}
 	lifecycle, _ := lifecycles.GetLifecycle("setup", false)
@@ -17,6 +18,7 @@ func TestGetLifecycleReturnsSetup(t *testing.T) {
 }
 
 func TestGetLifecycleReturnsSetVersion(t *testing.T) {
+t.Parallel()
 	lifecycles := jenkinsfile.PipelineLifecycles{}
 	lifecycles.SetVersion = &jenkinsfile.PipelineLifecycle{}
 	lifecycle, _ := lifecycles.GetLifecycle("setversion", false)
@@ -24,6 +26,7 @@ func TestGetLifecycleReturnsSetVersion(t *testing.T) {
 }
 
 func TestGetLifecycleReturnsPreBuild(t *testing.T) {
+t.Parallel()
 	lifecycles := jenkinsfile.PipelineLifecycles{}
 	lifecycles.PreBuild = &jenkinsfile.PipelineLifecycle{}
 	lifecycle, _ := lifecycles.GetLifecycle("prebuild", false)
@@ -31,6 +34,7 @@ func TestGetLifecycleReturnsPreBuild(t *testing.T) {
 }
 
 func TestGetLifecycleReturnsBuild(t *testing.T) {
+t.Parallel()
 	lifecycles := jenkinsfile.PipelineLifecycles{}
 	lifecycles.Build = &jenkinsfile.PipelineLifecycle{}
 	lifecycle, _ := lifecycles.GetLifecycle("build", false)
@@ -38,6 +42,7 @@ func TestGetLifecycleReturnsBuild(t *testing.T) {
 }
 
 func TestGetLifecycleReturnsPostBuild(t *testing.T) {
+t.Parallel()
 	lifecycles := jenkinsfile.PipelineLifecycles{}
 	lifecycles.PostBuild = &jenkinsfile.PipelineLifecycle{}
 	lifecycle, _ := lifecycles.GetLifecycle("postbuild", false)
@@ -45,6 +50,7 @@ func TestGetLifecycleReturnsPostBuild(t *testing.T) {
 }
 
 func TestGetLifecycleReturnsPromote(t *testing.T) {
+t.Parallel()
 	lifecycles := jenkinsfile.PipelineLifecycles{}
 	lifecycles.Promote = &jenkinsfile.PipelineLifecycle{}
 	lifecycle, _ := lifecycles.GetLifecycle("promote", false)
@@ -52,6 +58,7 @@ func TestGetLifecycleReturnsPromote(t *testing.T) {
 }
 
 func TestGetLifecycleReturnsEmptyLifecycle(t *testing.T) {
+t.Parallel()
 	names := []string{"setup", "setversion", "prebuild", "build", "postbuild", "promote"}
 	for _, name := range names {
 		lifecycles := jenkinsfile.PipelineLifecycles{}
@@ -62,6 +69,7 @@ func TestGetLifecycleReturnsEmptyLifecycle(t *testing.T) {
 }
 
 func TestGetLifecycleReturnsError(t *testing.T) {
+t.Parallel()
 	lifecycles := jenkinsfile.PipelineLifecycles{}
 	_, err := lifecycles.GetLifecycle("something-else", false)
 	assert.Error(t, err)

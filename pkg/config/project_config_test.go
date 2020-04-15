@@ -90,6 +90,7 @@ func TestProjectConfigMarshal(t *testing.T) {
 }
 
 func TestGetPipeline(t *testing.T) {
+t.Parallel()
 	releasePipeline, err := testProjectConfigMaven.GetPipeline(jenkinsfile.PipelineKindRelease)
 	assert.NoError(t, err)
 	assert.NotNil(t, releasePipeline)

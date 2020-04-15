@@ -11,6 +11,7 @@ import (
 )
 
 func TestCanLoadDependencyUpdates(t *testing.T) {
+t.Parallel()
 	data := `updates:
 - component: ""
   fromReleaseHTMLURL: https://github.com/cloudbees/jx-tenant-service/releases/tag/v0.0.262
@@ -31,6 +32,7 @@ func TestCanLoadDependencyUpdates(t *testing.T) {
 }
 
 func TestCanLoadDependencyUpdates2(t *testing.T) {
+t.Parallel()
 	data := `updates:
 - component: ""
   fromReleaseHTMLURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.1029

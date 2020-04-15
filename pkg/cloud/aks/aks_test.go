@@ -21,6 +21,7 @@ func aksWithRunner(t *testing.T, expectedError error, expectedOutput string) *ak
 }
 
 func TestGetClusterClient(t *testing.T) {
+t.Parallel()
 	azureCLI := aksWithRunner(t, nil, `[{
 			"group": "musekeen",
 			"id": "01234567-89ab-cdef-0123-456789abcdef",
@@ -42,6 +43,7 @@ func TestGetClusterClient(t *testing.T) {
 }
 
 func TestNotACR(t *testing.T) {
+t.Parallel()
 	azureCLI := aks.NewAzureRunner()
 	config, registry, id, err := azureCLI.GetRegistry("", "rg", "name", "azure.docker.io")
 	assert.Equal(t, "", config)
@@ -51,6 +53,7 @@ func TestNotACR(t *testing.T) {
 }
 
 func TestNoRegistrySet(t *testing.T) {
+t.Parallel()
 	RegisterMockTestingT(t)
 	runner := mocks.NewMockCommander()
 	When(runner.RunWithoutRetry()).Then(func(params []Param) ReturnValues {
@@ -66,6 +69,7 @@ func TestNoRegistrySet(t *testing.T) {
 }
 
 func TestSubscriptionSet(t *testing.T) {
+t.Parallel()
 	RegisterMockTestingT(t)
 	runner := mocks.NewMockCommander()
 	When(runner.RunWithoutRetry()).Then(func(params []Param) ReturnValues {
@@ -81,6 +85,7 @@ func TestSubscriptionSet(t *testing.T) {
 }
 
 func TestRegistry404(t *testing.T) {
+t.Parallel()
 	RegisterMockTestingT(t)
 	runner := mocks.NewMockCommander()
 	When(runner.RunWithoutRetry()).Then(func(params []Param) ReturnValues {
@@ -96,6 +101,7 @@ func TestRegistry404(t *testing.T) {
 }
 
 func TestRegistry404WithSubSet(t *testing.T) {
+t.Parallel()
 	RegisterMockTestingT(t)
 	runner := mocks.NewMockCommander()
 	When(runner.RunWithoutRetry()).Then(func(params []Param) ReturnValues {

@@ -8,6 +8,7 @@ import (
 )
 
 func TestFindDuplicates(t *testing.T) {
+t.Parallel()
 
 	tests := []struct {
 		name   string

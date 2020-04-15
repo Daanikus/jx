@@ -17,6 +17,7 @@ import (
 )
 
 func TestAWSClusterClient_List(t *testing.T) {
+t.Parallel()
 	p := testutils.NewMockProvider("", "")
 	pegomock.When(p.EKS().ListClusters()).ThenReturn([]*cluster.Cluster{
 		{
@@ -48,6 +49,7 @@ func TestAWSClusterClient_List(t *testing.T) {
 }
 
 func TestAWSClusterClient_Get(t *testing.T) {
+t.Parallel()
 	p := testutils.NewMockProvider("", "")
 	pegomock.When(p.EKS().DescribeCluster(pegomock.EqString("cluster-1"))).ThenReturn(
 		&cluster.Cluster{
@@ -76,6 +78,7 @@ func TestAWSClusterClient_Get(t *testing.T) {
 }
 
 func TestAWSClusterClient_ListFilter(t *testing.T) {
+t.Parallel()
 	p := testutils.NewMockProvider("", "")
 	pegomock.When(p.EKS().ListClusters()).ThenReturn([]*cluster.Cluster{
 		{
@@ -119,6 +122,7 @@ func TestAWSClusterClient_ListFilter(t *testing.T) {
 }
 
 func TestAWSClusterClient_Delete(t *testing.T) {
+t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	p := testutils.NewMockProvider("", "")
 

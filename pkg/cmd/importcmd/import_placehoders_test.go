@@ -15,6 +15,7 @@ import (
 )
 
 func TestReplacePlaceholders(t *testing.T) {
+t.Parallel()
 	f, err := ioutil.TempDir("", "test-replace-placeholders")
 	assert.NoError(t, err)
 

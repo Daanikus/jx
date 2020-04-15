@@ -29,6 +29,7 @@ import (
 )
 
 func TestDedupeRepositories(t *testing.T) {
+t.Parallel()
 	tempDir, err := ioutil.TempDir("", "test-applications-config")
 	assert.NoError(t, err, "should create a temporary config dir")
 
@@ -49,6 +50,7 @@ func TestDedupeRepositories(t *testing.T) {
 }
 
 func TestExtraAppValues(t *testing.T) {
+t.Parallel()
 	tempDir, err := ioutil.TempDir("", "test-applications-config")
 	assert.NoError(t, err, "should create a temporary config dir")
 
@@ -69,6 +71,7 @@ func TestExtraAppValues(t *testing.T) {
 }
 
 func TestExtraFlagValues(t *testing.T) {
+t.Parallel()
 	tempDir, err := ioutil.TempDir("", "test-applications-config")
 	assert.NoError(t, err, "should create a temporary config dir")
 
@@ -90,6 +93,7 @@ func TestExtraFlagValues(t *testing.T) {
 }
 
 func TestCreateNamespaceChart(t *testing.T) {
+t.Parallel()
 	tempDir, err := ioutil.TempDir("", "test-applications-config")
 	assert.NoError(t, err, "should create a temporary config dir")
 
@@ -123,6 +127,7 @@ func TestCreateNamespaceChart(t *testing.T) {
 }
 
 func TestSystem(t *testing.T) {
+t.Parallel()
 	tempDir, err := ioutil.TempDir("", "test-applications-config")
 	assert.NoError(t, err, "should create a temporary config dir")
 

@@ -13,6 +13,7 @@ import (
 )
 
 func TestField(t *testing.T) {
+t.Parallel()
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Pipeline Activity Integration Test Suite")
 }

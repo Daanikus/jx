@@ -23,6 +23,7 @@ var (
 )
 
 func TestPatchUpdateEnvironmentNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testEnvironment)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -48,6 +49,7 @@ func TestPatchUpdateEnvironmentNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateEnvironmentWithChange(t *testing.T) {
+t.Parallel()
 	namespace := "jx"
 	clonedEnvironment := testEnvironment.DeepCopy()
 	clonedEnvironment.Spec.Namespace = namespace
@@ -82,6 +84,7 @@ func TestPatchUpdateEnvironmentWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateEnvironmentWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -101,6 +104,7 @@ func TestPatchUpdateEnvironmentWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateEnvironmentWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testEnvironment)

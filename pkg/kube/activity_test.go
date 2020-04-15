@@ -26,6 +26,7 @@ import (
 )
 
 func TestGenerateBuildNumber(t *testing.T) {
+t.Parallel()
 	commonOpts := opts.NewCommonOptionsWithFactory(clients.NewFactory())
 	options := &commonOpts
 	testhelpers.ConfigureTestOptions(options, options.Git(), options.Helm())
@@ -519,6 +520,7 @@ func TestBatchReconciliationWithTwoPRBuildExecutions(t *testing.T) {
 }
 
 func TestCreatePipelineDetails(t *testing.T) {
+t.Parallel()
 	expectedGitOwner := "jstrachan"
 	expectedGitRepo := "myapp"
 	expectedBranch := "master"

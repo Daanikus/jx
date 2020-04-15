@@ -23,6 +23,7 @@ var (
 )
 
 func TestPatchUpdateExtensionNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testExtension)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -48,6 +49,7 @@ func TestPatchUpdateExtensionNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateExtensionWithChange(t *testing.T) {
+t.Parallel()
 	name := "fubu"
 	clonedExtension := testExtension.DeepCopy()
 	clonedExtension.Spec.Name = name
@@ -82,6 +84,7 @@ func TestPatchUpdateExtensionWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateExtensionWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -101,6 +104,7 @@ func TestPatchUpdateExtensionWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateExtensionWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testExtension)

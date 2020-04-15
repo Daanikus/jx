@@ -20,6 +20,7 @@ import (
 )
 
 func TestParseDependencyUpdateMessage(t *testing.T) {
+t.Parallel()
 
 	mockFactory := clients_test.NewMockFactory()
 	commonOpts := opts.NewCommonOptionsWithFactory(mockFactory)

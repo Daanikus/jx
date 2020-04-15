@@ -23,6 +23,7 @@ import (
 )
 
 func Test_display_current_namespace(t *testing.T) {
+t.Parallel()
 	commonOpts, _, stdOutFileName, stdErrFileName, kubeConfig := setUp(t)
 	defer func() {
 		_ = os.Remove(stdOutFileName)
@@ -45,6 +46,7 @@ func Test_display_current_namespace(t *testing.T) {
 }
 
 func Test_change_current_namespace(t *testing.T) {
+t.Parallel()
 	commonOpts, kubeClient, stdOutFileName, stdErrFileName, kubeConfig := setUp(t)
 	defer func() {
 		_ = os.Remove(stdOutFileName)
@@ -76,6 +78,7 @@ func Test_change_current_namespace(t *testing.T) {
 }
 
 func Test_change_to_new_namespace_with_create(t *testing.T) {
+t.Parallel()
 	commonOpts, kubeClient, stdOutFileName, stdErrFileName, kubeConfig := setUp(t)
 	defer func() {
 		_ = os.Remove(stdOutFileName)
@@ -107,6 +110,7 @@ func Test_change_to_new_namespace_with_create(t *testing.T) {
 }
 
 func Test_change_to_unknown_namespace_creates_error(t *testing.T) {
+t.Parallel()
 	commonOpts, _, stdOutFileName, stdErrFileName, kubeConfig := setUp(t)
 	defer func() {
 		_ = os.Remove(stdOutFileName)

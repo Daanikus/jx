@@ -18,6 +18,7 @@ import (
 )
 
 func TestBucketCollector_CollectData(t *testing.T) {
+t.Parallel()
 	contents := []byte("This is a test")
 	outputName := "destination"
 	bucketURL := "bucket://bucketName"
@@ -42,6 +43,7 @@ func AnyIoReader() io.Reader {
 }
 
 func TestBucketCollector_CollectFiles(t *testing.T) {
+t.Parallel()
 	bucketURL := "bucket://bucketName"
 	pwd, err := os.Getwd()
 	assert.NoError(t, err)

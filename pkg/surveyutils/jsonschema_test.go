@@ -45,6 +45,7 @@ func init() {
 }
 
 func TestObjectType(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "objectType.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -62,6 +63,7 @@ func TestObjectType(t *testing.T) {
 }
 
 func TestDescriptionAndTitle(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "descriptionAndTitle.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -89,6 +91,7 @@ name: Pete
 }
 
 func TestAutoAcceptDefaultValues(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "autoAcceptDefaultValues.test.schema.json", make(map[string]interface{}), false, false, true, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -105,6 +108,7 @@ func TestAutoAcceptDefaultValues(t *testing.T) {
 }
 
 func TestAcceptExisting(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "acceptExisting.test.schema.json", map[string]interface{}{
@@ -122,6 +126,7 @@ func TestAcceptExisting(t *testing.T) {
 }
 
 func TestAskExisting(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "askExisting.test.schema.json", map[string]interface{}{
@@ -140,6 +145,7 @@ func TestAskExisting(t *testing.T) {
 }
 
 func TestNoAskAndAutoAcceptDefaultsWithExisting(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "noAskAndAutoAcceptDefaultsWithExisting.test.schema.json", map[string]interface{}{
@@ -161,6 +167,7 @@ name: John Smith
 }
 
 func TestIgnoreMissingValues(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "ignoreMissingValues.test.schema.json", make(map[string]interface{}), false, true, false, true, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -174,6 +181,7 @@ func TestIgnoreMissingValues(t *testing.T) {
 }
 
 func TestErrorMissingValues(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "ignoreMissingValues.test.schema.json", make(map[string]interface{}), false, true, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -185,6 +193,7 @@ func TestErrorMissingValues(t *testing.T) {
 }
 
 func TestDefaultValues(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "defaultValues.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -210,6 +219,7 @@ stringValue: UK
 }
 
 func TestConstValues(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "constValues.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -230,6 +240,7 @@ stringValue: UK
 }
 
 func TestBasicTypesValidation(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "basicTypesValidation.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -251,6 +262,7 @@ func TestBasicTypesValidation(t *testing.T) {
 }
 
 func TestBasicTypes(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "basicTypes.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -277,6 +289,7 @@ stringValue: hello
 }
 
 func TestMultipleOf(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "multipleOf.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -299,6 +312,7 @@ func TestMultipleOf(t *testing.T) {
 }
 
 func TestMaximum(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "maximum.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -321,6 +335,7 @@ func TestMaximum(t *testing.T) {
 }
 
 func TestExclusiveMaximum(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "exclusiveMaximum.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -343,6 +358,7 @@ func TestExclusiveMaximum(t *testing.T) {
 }
 
 func TestMinimum(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "minimum.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -365,6 +381,7 @@ func TestMinimum(t *testing.T) {
 }
 
 func TestExclusiveMinimum(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "exclusiveMinimum.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -387,6 +404,7 @@ func TestExclusiveMinimum(t *testing.T) {
 }
 
 func TestMaxLength(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "maxLength.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -404,6 +422,7 @@ func TestMaxLength(t *testing.T) {
 }
 
 func TestMinLength(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "minLength.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -421,6 +440,7 @@ func TestMinLength(t *testing.T) {
 }
 
 func TestPattern(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "pattern.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -438,6 +458,7 @@ func TestPattern(t *testing.T) {
 }
 
 func TestRequired(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "required.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -455,6 +476,7 @@ func TestRequired(t *testing.T) {
 }
 
 func TestIfThen(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "ifThenElse.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -480,6 +502,7 @@ enablePersistentStorage: true
 }
 
 func TestIfElse(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "ifThenElse.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -498,6 +521,7 @@ enablePersistentStorage: false
 }
 
 func TestIfElseTrueBoolean(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "ifThenElseTrueBoolean.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -516,6 +540,7 @@ enablePersistentStorage: false
 }
 
 func TestIfElseNested(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "ifThenElseNested.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -538,6 +563,7 @@ func TestIfElseNested(t *testing.T) {
 }
 
 func TestIfElseWithDefaults(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "ifThenElse.test.schema.json", make(map[string]interface{}), false, false, true, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -554,6 +580,7 @@ enablePersistentStorage: false
 }
 
 func TestAllOf(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "AllOfIf.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -585,6 +612,7 @@ enablePersistentStorage: true
 }
 
 func TestAllOfThen(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, _, err := GenerateValuesAsYaml(r, "AllOfIf.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -616,6 +644,7 @@ iDontLikeCheese: true
 }
 
 func TestMinProperties(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "minProperties.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -637,6 +666,7 @@ func TestMinProperties(t *testing.T) {
 }
 
 func TestMaxProperties(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "maxProperties.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -659,6 +689,7 @@ func TestMaxProperties(t *testing.T) {
 }
 
 func TestDateTime(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "dateTime.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -677,6 +708,7 @@ func TestDateTime(t *testing.T) {
 }
 
 func TestDate(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "date.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -695,6 +727,7 @@ func TestDate(t *testing.T) {
 }
 
 func TestTime(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "time.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -713,6 +746,7 @@ func TestTime(t *testing.T) {
 }
 
 func TestPassword(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, vaultClient, err := GenerateValuesAsYaml(r, "password.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -732,6 +766,7 @@ func TestPassword(t *testing.T) {
 }
 
 func TestExistingPassword(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 1, time.Second*10, func(r *tests.R) {
 		values, vaultClient, err := GenerateValuesAsYaml(r, "password.test.schema.json", map[string]interface{}{
@@ -754,6 +789,7 @@ func TestExistingPassword(t *testing.T) {
 }
 
 func TestToken(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		values, vaultClient, err := GenerateValuesAsYaml(r, "token.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -773,6 +809,7 @@ func TestToken(t *testing.T) {
 }
 
 func TestGeneratedToken(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 1, time.Second*10, func(r *tests.R) {
 		values, vaultClient, err := GenerateValuesAsYaml(r, "generatedToken.test.schema.json", make(map[string]interface{}), false,
@@ -795,6 +832,7 @@ func TestGeneratedToken(t *testing.T) {
 }
 
 func TestGeneratedHmacToken(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 1, time.Second*10, func(r *tests.R) {
 		values, vaultClient, err := GenerateValuesAsYaml(r, "generatedHmacToken.test.schema.json", make(map[string]interface{}), false,
@@ -822,6 +860,7 @@ func TestGeneratedHmacToken(t *testing.T) {
 }
 
 func TestExistingToken(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 1, time.Second*10, func(r *tests.R) {
 		vaultClient := fake.NewFakeVaultClient()
@@ -845,6 +884,7 @@ func TestExistingToken(t *testing.T) {
 }
 
 func TestEmail(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "email.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -863,6 +903,7 @@ func TestEmail(t *testing.T) {
 }
 
 func TestIdnEmail(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "idnemail.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -881,6 +922,7 @@ func TestIdnEmail(t *testing.T) {
 }
 
 func TestHostname(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "hostname.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -899,6 +941,7 @@ func TestHostname(t *testing.T) {
 }
 
 func TestIdnHostname(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "idnhostname.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -917,6 +960,7 @@ func TestIdnHostname(t *testing.T) {
 }
 
 func TestIpv4(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "ipv4.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -935,6 +979,7 @@ func TestIpv4(t *testing.T) {
 }
 
 func TestIpv6(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "ipv6.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -953,6 +998,7 @@ func TestIpv6(t *testing.T) {
 }
 
 func TestUri(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "uri.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -970,6 +1016,7 @@ func TestUri(t *testing.T) {
 }
 
 func TestUriReference(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "uriReference.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {
@@ -987,6 +1034,7 @@ func TestUriReference(t *testing.T) {
 }
 
 func TestJSONPointer(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
 		_, _, err := GenerateValuesAsYaml(r, "jsonPointer.test.schema.json", make(map[string]interface{}), false, false, false, false, func(console *tests.ConsoleWrapper, donec chan struct{}) {

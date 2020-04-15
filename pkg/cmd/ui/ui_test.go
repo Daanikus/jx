@@ -23,6 +23,7 @@ import (
 )
 
 func TestShowErrorMessageIfIngressFound(t *testing.T) {
+t.Parallel()
 	_, kubeClient, co, ns := getFakeClientsAndNs(t)
 
 	ingress := &v1beta1.Ingress{
@@ -50,6 +51,7 @@ func TestShowErrorMessageIfIngressFound(t *testing.T) {
 }
 
 func TestGetLocalURL(t *testing.T) {
+t.Parallel()
 	jxClient, kubeClient, co, ns := getFakeClientsAndNs(t)
 
 	_, err := kubeClient.CoreV1().Services(ns).Create(&corev1.Service{
@@ -89,6 +91,7 @@ func TestGetLocalURL(t *testing.T) {
 }
 
 func TestGetLocalURLMissingApp(t *testing.T) {
+t.Parallel()
 	_, _, co, _ := getFakeClientsAndNs(t)
 
 	o := UIOptions{
@@ -105,6 +108,7 @@ func TestGetLocalURLMissingApp(t *testing.T) {
 }
 
 func TestGetLocalURLMissingService(t *testing.T) {
+t.Parallel()
 	jxClient, _, co, ns := getFakeClientsAndNs(t)
 	_, err := jxClient.JenkinsV1().Apps(ns).Create(&jenkinsv1.App{
 		ObjectMeta: v1.ObjectMeta{

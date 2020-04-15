@@ -26,6 +26,7 @@ import (
 )
 
 func TestGetPipelinesWithProw(t *testing.T) {
+t.Parallel()
 	o := get.GetPipelineOptions{}
 
 	// fake the output stream to be checked later

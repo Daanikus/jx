@@ -26,6 +26,7 @@ func fakeDiscoverAppName() (string, error) {
 }
 
 func TestEnsureApplicationNameIsDefinedWithoutApplicationFlagWithArgs(t *testing.T) {
+t.Parallel()
 	promoteOptions := &promote.PromoteOptions{
 		Environment: "production", // --env production
 	}
@@ -41,6 +42,7 @@ func TestEnsureApplicationNameIsDefinedWithoutApplicationFlagWithArgs(t *testing
 }
 
 func TestEnsureApplicationNameIsDefinedWithoutApplicationFlagWithFilterFlag(t *testing.T) {
+t.Parallel()
 	promoteOptions := &promote.PromoteOptions{
 		Environment: "production", // --env production
 		Filter:      "something",
@@ -56,6 +58,7 @@ func TestEnsureApplicationNameIsDefinedWithoutApplicationFlagWithFilterFlag(t *t
 }
 
 func TestEnsureApplicationNameIsDefinedWithoutApplicationFlagWithBatchFlag(t *testing.T) {
+t.Parallel()
 	promoteOptions := &promote.PromoteOptions{
 		Environment: "production", // --env production
 	}
@@ -71,6 +74,7 @@ func TestEnsureApplicationNameIsDefinedWithoutApplicationFlagWithBatchFlag(t *te
 }
 
 func TestEnsureApplicationNameIsDefinedWithoutApplicationFlag(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 
 	console := tests.NewTerminal(t, nil)
@@ -104,6 +108,7 @@ func TestEnsureApplicationNameIsDefinedWithoutApplicationFlag(t *testing.T) {
 }
 
 func TestEnsureApplicationNameIsDefinedWithoutApplicationFlagUserSaysNo(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 
 	console := tests.NewTerminal(t, nil)
@@ -137,6 +142,7 @@ func TestEnsureApplicationNameIsDefinedWithoutApplicationFlagUserSaysNo(t *testi
 }
 
 func TestGetEnvChartValues(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		ns           string
 		env          v1.Environment

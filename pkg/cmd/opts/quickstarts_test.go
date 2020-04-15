@@ -22,6 +22,7 @@ import (
 )
 
 func TestLoadQuickStarts(t *testing.T) {
+t.Parallel()
 
 	mockFactory := fake.NewFakeFactory()
 	commonOpts := opts.NewCommonOptionsWithFactory(mockFactory)

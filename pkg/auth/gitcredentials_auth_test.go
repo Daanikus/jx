@@ -11,6 +11,7 @@ import (
 )
 
 func TestLoadGitCredentials(t *testing.T) {
+t.Parallel()
 	fileName := filepath.Join("test_data", "git", "credentials")
 	config, err := loadGitCredentialsAuthFile(fileName)
 	require.NoError(t, err, "should not have failed to load file %s", fileName)
@@ -66,6 +67,7 @@ func assertServerUserPassword(t *testing.T, config *AuthConfig, serverURL string
 }
 
 func TestLoadGitCredentialsFileDoesNotExist(t *testing.T) {
+t.Parallel()
 	config, err := loadGitCredentialsAuthFile("test_data/does/not/exist")
 	require.NoError(t, err, "should not have failed to load non existing git creds file")
 	assert.Nil(t, config, "should have returned nil config")

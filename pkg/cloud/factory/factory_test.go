@@ -23,6 +23,7 @@ import (
 )
 
 func TestNewBucketProviderFromTeamSettingsConfiguration(t *testing.T) {
+t.Parallel()
 	var fac clients.Factory
 	fac = &fake.FakeFactory{}
 	jxClient, ns, err := fac.CreateJXClient()
@@ -84,6 +85,7 @@ func TestNewBucketProviderFromTeamSettingsConfiguration(t *testing.T) {
 	}
 }
 func TestNewBucketProviderFromTeamSettingsConfigurationOrDefault(t *testing.T) {
+t.Parallel()
 	var fac clients.Factory
 	fac = &fake.FakeFactory{}
 	jxClient, ns, err := fac.CreateJXClient()

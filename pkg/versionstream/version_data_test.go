@@ -21,6 +21,7 @@ const (
 
 // TODO refactor to encapsulate
 func TestLoadVersionData(t *testing.T) {
+t.Parallel()
 	AssertLoadTestData(t, dataDir, KindChart, "jenkins-x/knative-build", "0.1.13")
 	AssertLoadTestData(t, dataDir, KindChart, "doesNotExist", "")
 	AssertLoadTestData(t, dataDir, KindPackage, "helm", "2.12.2")
@@ -28,6 +29,7 @@ func TestLoadVersionData(t *testing.T) {
 
 // AssertLoadTestData asserts that the StableVersion can be loaded/created for the given kind
 func AssertLoadTestData(t *testing.T, dataDir string, kind VersionKind, name string, expectedValue string) {
+t.Parallel()
 	data, err := LoadStableVersion(dataDir, kind, name)
 	require.NoError(t, err, "failed to load StableVersion for dir %s kind %s name %s", dataDir, string(kind), name)
 
@@ -36,6 +38,7 @@ func AssertLoadTestData(t *testing.T, dataDir string, kind VersionKind, name str
 
 // TestExactPackage tests an exact package version
 func TestExactPackage(t *testing.T) {
+t.Parallel()
 	resolver := &VersionResolver{
 		VersionsDir: dataDir,
 	}
@@ -46,6 +49,7 @@ func TestExactPackage(t *testing.T) {
 
 // TestRepositories tests we can load the repository prefix -> URL maps
 func TestRepositories(t *testing.T) {
+t.Parallel()
 
 	prefixes, err := GetRepositoryPrefixes(dataDir)
 	require.NoError(t, err, "GetRepositoryPrefixes() failed on dir %s", dataDir)
@@ -62,6 +66,7 @@ func TestRepositories(t *testing.T) {
 
 // TestExactPackageVersionRange tests ranges of packages
 func TestExactPackageVersionRange(t *testing.T) {
+t.Parallel()
 	resolver := &VersionResolver{
 		VersionsDir: dataDir,
 	}
@@ -92,6 +97,7 @@ func AssertPackageVersion(t *testing.T, resolver *VersionResolver, name string, 
 }
 
 func TestResolveDockerImage(t *testing.T) {
+t.Parallel()
 	var testCases = []struct {
 		dataDir               string
 		resolveImage          string
@@ -128,6 +134,7 @@ func TestResolveDockerImage(t *testing.T) {
 
 // TestGitURLToName tests version.GitURLToName()
 func TestGitURLToName(t *testing.T) {
+t.Parallel()
 	data := map[string]string{
 		"https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes":     "github.com/jenkins-x-buildpacks/jenkins-x-kubernetes",
 		"https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes.git": "github.com/jenkins-x-buildpacks/jenkins-x-kubernetes",
@@ -141,6 +148,7 @@ func TestGitURLToName(t *testing.T) {
 
 // TestGitURLToName tests version.GitURLToName()
 func TestConvertToVersion(t *testing.T) {
+t.Parallel()
 	var testCases = []struct {
 		text            string
 		expectedVersion string

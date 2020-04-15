@@ -15,6 +15,7 @@ import (
 )
 
 func TestBuildWithEverythingInParent(t *testing.T) {
+t.Parallel()
 	child := &v1.SchedulerSpec{
 		// Override nothing, everything comes from
 	}

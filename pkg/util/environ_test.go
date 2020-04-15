@@ -11,6 +11,7 @@ import (
 )
 
 func TestGetAndCleanEnviron(t *testing.T) {
+t.Parallel()
 	tests := map[string]struct {
 		setEnvs   map[string]string
 		unsetEnvs []string
@@ -80,6 +81,7 @@ func TestGetAndCleanEnviron(t *testing.T) {
 }
 
 func TestRetoreEnviron(t *testing.T) {
+t.Parallel()
 	tests := map[string]struct {
 		environ map[string]string
 		want    map[string]string

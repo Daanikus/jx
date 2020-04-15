@@ -23,6 +23,7 @@ var (
 )
 
 func TestPatchUpdateCommitStatusNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testCommitStatus)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -48,6 +49,7 @@ func TestPatchUpdateCommitStatusNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateCommitStatusWithChange(t *testing.T) {
+t.Parallel()
 	context := "foo"
 	clonedCommitStatus := testCommitStatus.DeepCopy()
 	clonedCommitStatus.Spec.Items = []v1.CommitStatusDetails{
@@ -86,6 +88,7 @@ func TestPatchUpdateCommitStatusWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateCommitStatusWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -105,6 +108,7 @@ func TestPatchUpdateCommitStatusWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateCommitStatusWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testCommitStatus)

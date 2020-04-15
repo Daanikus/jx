@@ -50,6 +50,7 @@ func (m mockedEC2) DeleteVolume(input *ec2.DeleteVolumeInput) (*ec2.DeleteVolume
 }
 
 func TestEC2Options_DeleteVolumesForCluster(t *testing.T) {
+t.Parallel()
 	sess, err := session.NewSession()
 	assert.NoError(t, err)
 	ec2Options, err := NewEC2APIHandler(sess, mockedEC2{

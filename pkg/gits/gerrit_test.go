@@ -96,6 +96,7 @@ func (suite *GerritProviderTestSuite) TestCreateRepository() {
 }
 
 func TestGerritProviderTestSuite(t *testing.T) {
+t.Parallel()
 	if testing.Short() {
 		t.Skip("skipping GerritProviderTestSuite in short mode")
 	} else {

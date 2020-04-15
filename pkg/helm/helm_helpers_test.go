@@ -103,6 +103,7 @@ func TestSetValuesToMap(t *testing.T) {
 }
 
 func TestStoreCredentials(t *testing.T) {
+t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	vaultClient := secreturl_test.NewMockClient()
 	repository := "http://charts.acme.com"
@@ -119,6 +120,7 @@ func TestStoreCredentials(t *testing.T) {
 }
 
 func TestRetrieveCredentials(t *testing.T) {
+t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	vaultClient := secreturl_test.NewMockClient()
 	repository := "http://charts.acme.com"
@@ -145,6 +147,7 @@ func TestRetrieveCredentials(t *testing.T) {
 }
 
 func TestOverrideCredentials(t *testing.T) {
+t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	vaultClient := secreturl_test.NewMockClient()
 	repository := "http://charts.acme.com"
@@ -179,6 +182,7 @@ func TestOverrideCredentials(t *testing.T) {
 }
 
 func TestReplaceVaultURI(t *testing.T) {
+t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	vaultClient := secreturl_test.NewMockClient()
 	path := "/baz/qux"
@@ -217,6 +221,7 @@ func TestReplaceVaultURI(t *testing.T) {
 }
 
 func TestReplaceVaultURIWithLocalFile(t *testing.T) {
+t.Parallel()
 	vaultClient := localvault.NewFileSystemClient(path.Join("test_data", "local_vault_files"))
 	path := "/baz/qux"
 	key := "cheese"
@@ -257,6 +262,7 @@ func TestReplaceVaultURIWithLocalFile(t *testing.T) {
 }
 
 func TestFindLatestChart(t *testing.T) {
+t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	helmer := helm_test.NewMockHelmer()
 	pegomock.When(helmer.SearchCharts(pegomock.EqString("acme/roadrunner"), pegomock.EqBool(true))).ThenReturn(pegomock.ReturnValue([]helm.ChartSummary{

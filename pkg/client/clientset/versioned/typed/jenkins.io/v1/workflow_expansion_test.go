@@ -23,6 +23,7 @@ var (
 )
 
 func TestPatchUpdateWorkflowNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testWorkflow)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -48,6 +49,7 @@ func TestPatchUpdateWorkflowNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateWorkflowWithChange(t *testing.T) {
+t.Parallel()
 	pipelineName := "dummy-pipeline"
 	clonedWorkflow := testWorkflow.DeepCopy()
 	clonedWorkflow.Spec.PipelineName = pipelineName
@@ -82,6 +84,7 @@ func TestPatchUpdateWorkflowWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateWorkflowWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -101,6 +104,7 @@ func TestPatchUpdateWorkflowWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateWorkflowWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testWorkflow)

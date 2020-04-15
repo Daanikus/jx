@@ -23,6 +23,7 @@ var (
 )
 
 func TestPatchUpdateGitServiceNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testGitService)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -48,6 +49,7 @@ func TestPatchUpdateGitServiceNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateGitServiceWithChange(t *testing.T) {
+t.Parallel()
 	name := "susfu"
 	clonedGitService := testGitService.DeepCopy()
 	clonedGitService.Spec.Name = name
@@ -82,6 +84,7 @@ func TestPatchUpdateGitServiceWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateGitServiceWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -101,6 +104,7 @@ func TestPatchUpdateGitServiceWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateGitServiceWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testGitService)

@@ -169,6 +169,7 @@ func TestSaasKind(t *testing.T) {
 }
 
 func TestGitInfoProviderURL(t *testing.T) {
+t.Parallel()
 	for _, u := range []string{"https://github.com/jenkins-x/x.git", "git@github.com:jenkins-x/jx.git"} {
 		info, err := gits.ParseGitURL(u)
 		require.NoError(t, err, "for URL %s", u)

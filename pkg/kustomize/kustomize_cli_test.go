@@ -12,6 +12,7 @@ import (
 )
 
 func TestKustomizeCLI_FindKustomize(t *testing.T) {
+t.Parallel()
 	testDir, err := filepath.Abs(filepath.Dir("test_data/kustomize_dummy/base"))
 	assert.NoError(t, err, "failed to find test data")
 	wantedOutput := []string{
@@ -27,6 +28,7 @@ func TestKustomizeCLI_FindKustomize(t *testing.T) {
 }
 
 func TestKustomizeCLI_ContainsKustomizeConfig(t *testing.T) {
+t.Parallel()
 	testDir, err := filepath.Abs(filepath.Dir("test_data/kustomize_dummy/base"))
 	assert.NoError(t, err, "failed to find test data")
 

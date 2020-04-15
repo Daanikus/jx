@@ -33,6 +33,7 @@ var (
 )
 
 func TestUninstallOptions_Run_ContextSpecifiedAsOption_FailsWhenContextNamesDoNotMatch(t *testing.T) {
+t.Parallel()
 	setup(t, "current-context")
 	defer tearDown(t)
 
@@ -49,6 +50,7 @@ func TestUninstallOptions_Run_ContextSpecifiedAsOption_FailsWhenContextNamesDoNo
 }
 
 func TestUninstallOptions_Run_ContextSpecifiedAsOption_PassWhenContextNamesMatch(t *testing.T) {
+t.Parallel()
 	setup(t, "correct-context-to-delete")
 	defer tearDown(t)
 
@@ -77,6 +79,7 @@ func TestUninstallOptions_Run_ContextSpecifiedAsOption_PassWhenContextNamesMatch
 }
 
 func TestUninstallOptions_Run_ContextSpecifiedAsOption_PassWhenForced(t *testing.T) {
+t.Parallel()
 	setup(t, "correct-context-to-delete")
 	defer tearDown(t)
 
@@ -103,6 +106,7 @@ func TestUninstallOptions_Run_ContextSpecifiedAsOption_PassWhenForced(t *testing
 }
 
 func TestUninstallOptions_Run_ContextSpecifiedViaCli_FailsWhenContextNamesDoNotMatch(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 
 	setup(t, "current-context")
@@ -145,6 +149,7 @@ func TestUninstallOptions_Run_ContextSpecifiedViaCli_FailsWhenContextNamesDoNotM
 }
 
 func TestUninstallOptions_Run_ContextSpecifiedViaCli_PassWhenContextNamesMatch(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 
 	setup(t, "correct-context-to-delete")
@@ -200,6 +205,7 @@ func TestUninstallOptions_Run_ContextSpecifiedViaCli_PassWhenContextNamesMatch(t
 }
 
 func TestDeleteReleaseIfPresent(t *testing.T) {
+t.Parallel()
 	RegisterMockTestingT(t)
 	commonOpts := opts.NewCommonOptionsWithFactory(clients_mocks.NewMockFactory())
 	o := &uninstall.UninstallOptions{
@@ -218,6 +224,7 @@ func TestDeleteReleaseIfPresent(t *testing.T) {
 }
 
 func TestForceDeleteReleaseIfPresentNotFound(t *testing.T) {
+t.Parallel()
 	RegisterMockTestingT(t)
 	commonOpts := opts.NewCommonOptionsWithFactory(clients_mocks.NewMockFactory())
 	o := &uninstall.UninstallOptions{
@@ -236,6 +243,7 @@ func TestForceDeleteReleaseIfPresentNotFound(t *testing.T) {
 }
 
 func TestDeleteReleaseNotFound(t *testing.T) {
+t.Parallel()
 	RegisterMockTestingT(t)
 	commonOpts := opts.NewCommonOptionsWithFactory(clients_mocks.NewMockFactory())
 	o := &uninstall.UninstallOptions{
@@ -257,6 +265,7 @@ func TestDeleteReleaseNotFound(t *testing.T) {
 }
 
 func TestForceDeleteReleaseNotFound(t *testing.T) {
+t.Parallel()
 	RegisterMockTestingT(t)
 	commonOpts := opts.NewCommonOptionsWithFactory(clients_mocks.NewMockFactory())
 	o := &uninstall.UninstallOptions{

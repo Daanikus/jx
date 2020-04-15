@@ -37,6 +37,7 @@ func TestInstall(t *testing.T) {
 }
 
 func TestGenerateProwSecret(t *testing.T) {
+t.Parallel()
 	fmt.Println(util.RandStringBytesMaskImprSrc(41))
 }
 
@@ -51,6 +52,7 @@ tutorial@bamboo-depth-206411.iam.gserviceaccount.com`
 }
 
 func TestCheckFlags(t *testing.T) {
+t.Parallel()
 
 	var tests = []struct {
 		name           string

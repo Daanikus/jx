@@ -17,6 +17,7 @@ import (
 
 // TestGCPConnector tests we can connect to a remote cluster/project/region easily
 func TestGCPConnector(t *testing.T) {
+t.Parallel()
 	project := os.Getenv("TEST_PROJECT")
 	cluster := os.Getenv("TEST_CLUSTER")
 	region := os.Getenv("TEST_REGION")

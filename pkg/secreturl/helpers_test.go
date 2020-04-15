@@ -18,6 +18,7 @@ var uriRegexp = regexp.MustCompile(`:[\s"]*vault:[-_.\w\/:]*`)
 const schemaPrefix = "vault:"
 
 func TestReplaceURIs(t *testing.T) {
+t.Parallel()
 	secretClient := fakevault.NewFakeClient()
 
 	testValue := "test"
@@ -35,6 +36,7 @@ password: %s
 }
 
 func TestReplaceURIsWithQuotation(t *testing.T) {
+t.Parallel()
 	secretClient := fakevault.NewFakeClient()
 
 	testValue := "test"
@@ -51,6 +53,7 @@ password: "%s"
 	assert.EqualValues(t, fmt.Sprintf(testString, testValue), result, "should replace the URIs")
 }
 func TestReplaceURIsWithoutReplacements(t *testing.T) {
+t.Parallel()
 	secretClient := fakevault.NewFakeClient()
 
 	testValue := "test"
@@ -64,6 +67,7 @@ password: %s
 }
 
 func TestReplaceURIsWithoutKey(t *testing.T) {
+t.Parallel()
 	secretClient := fakevault.NewFakeClient()
 
 	testValue := "test"
@@ -80,6 +84,7 @@ password: %s
 }
 
 func TestReplaceURIsNoValueFoundInVault(t *testing.T) {
+t.Parallel()
 	secretClient := fakevault.NewFakeClient()
 
 	testKey := "vault:cluster/admin:password"
@@ -93,6 +98,7 @@ password: %s
 }
 
 func TestReplaceURIsWhenNoSecretFoundInVault(t *testing.T) {
+t.Parallel()
 	secretClient := fakevault.NewFakeClient()
 
 	testValue := "test"
@@ -109,6 +115,7 @@ password: %s
 }
 
 func TestReplaceURIsSchemaIsYamlKeyWithoutValue(t *testing.T) {
+t.Parallel()
 	secretClient := fakevault.NewFakeClient()
 
 	testString := `
@@ -122,6 +129,7 @@ vault:
 }
 
 func TestReplaceURIsSchemaIsYamlKeyWithValue(t *testing.T) {
+t.Parallel()
 	secretClient := fakevault.NewFakeClient()
 
 	testString := `
@@ -134,6 +142,7 @@ vault: test
 }
 
 func TestReplaceURIsWithClusterDotsInName(t *testing.T) {
+t.Parallel()
 	secretClient := fakevault.NewFakeClient()
 
 	testValue := "test"

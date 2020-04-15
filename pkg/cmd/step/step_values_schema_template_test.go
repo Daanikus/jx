@@ -21,6 +21,7 @@ import (
 )
 
 func TestStepValuesSchemaTemplate(t *testing.T) {
+t.Parallel()
 	cmName := uuid.New()
 	o := StepValuesSchemaTemplateOptions{
 		StepOptions: step.StepOptions{

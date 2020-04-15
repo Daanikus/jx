@@ -12,6 +12,7 @@ import (
 )
 
 func TestAppendMatchingDeployments(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		name             string
 		list             List

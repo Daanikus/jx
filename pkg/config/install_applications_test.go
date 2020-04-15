@@ -11,6 +11,7 @@ import (
 )
 
 func TestJenkinsXAppsUnmarshalling(t *testing.T) {
+t.Parallel()
 	apps, err := LoadApplicationsConfig(path.Join("test_data"))
 	assert.NoError(t, err)
 
@@ -20,12 +21,14 @@ func TestJenkinsXAppsUnmarshalling(t *testing.T) {
 }
 
 func TestBadPhase(t *testing.T) {
+t.Parallel()
 	_, err := LoadApplicationsConfig(path.Join("test_data", "jx-apps-phase-bad"))
 	assert.Error(t, err)
 	assert.True(t, strings.HasPrefix(err.Error(), "failed to validate YAML file"))
 }
 
 func TestGoodPhase(t *testing.T) {
+t.Parallel()
 	apps, err := LoadApplicationsConfig(path.Join("test_data", "jx-apps-phase-good"))
 	assert.NoError(t, err)
 	assert.Equal(t, "velero", apps.Applications[0].Name)

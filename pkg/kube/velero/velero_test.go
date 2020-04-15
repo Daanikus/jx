@@ -11,6 +11,7 @@ import (
 )
 
 func TestDoesVeleroBackupScheduleExist(t *testing.T) {
+t.Parallel()
 	apiextensionsInterface := apiextentions_mocks.NewSimpleClientset()
 	type args struct {
 		apiClient clientset.Interface
@@ -48,6 +49,7 @@ func TestDoesVeleroBackupScheduleExist(t *testing.T) {
 }
 
 func TestGetBackupsFromBackupResource(t *testing.T) {
+t.Parallel()
 	apiextensionsInterface := apiextentions_mocks.NewSimpleClientset()
 	type args struct {
 		apiClient clientset.Interface

@@ -14,6 +14,7 @@ import (
 )
 
 func TestReplaceAllStringSubmatchFunc(t *testing.T) {
+t.Parallel()
 	incrementVersionRepl := func(groups []util.Group) []string {
 		answer := make([]string, 0)
 		for _, group := range groups {

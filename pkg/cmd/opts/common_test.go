@@ -43,7 +43,6 @@ type ChildFlags struct {
 }
 
 func Test_FlagExplicitlySet_returns_true_if_flag_explicitly_set_to_false(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	err := cmdUnderTest.Flags().Parse([]string{testCommandName, fmt.Sprintf("--%s", testFlagName), "false"})
@@ -53,7 +52,6 @@ t.Parallel()
 }
 
 func Test_FlagExplicitlySet_returns_true_if_flag_explicitly_set_to_true(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	err := cmdUnderTest.Flags().Parse([]string{testCommandName, fmt.Sprintf("--%s", testFlagName), "true"})
@@ -63,7 +61,6 @@ t.Parallel()
 }
 
 func Test_FlagExplicitlySet_returns_false_if_flag_is_not_set(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	explicit := commonOptsUnderTest.IsFlagExplicitlySet(testFlagName)
@@ -71,7 +68,6 @@ t.Parallel()
 }
 
 func Test_FlagExplicitlySet_returns_false_if_flag_is_unknown(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	explicit := commonOptsUnderTest.IsFlagExplicitlySet("fubar")
@@ -79,7 +75,6 @@ t.Parallel()
 }
 
 func Test_NotifyProgress(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	commonOptsUnderTest.NotifyProgress(LogInfo, "hello %s", "world\n")
@@ -97,7 +92,6 @@ t.Parallel()
 }
 
 func Test_JXNamespace(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	// mock factory
@@ -132,7 +126,6 @@ t.Parallel()
 }
 
 func Test_GetConfiguration(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	fileContent := fmt.Sprintf("%s: %t\n", testFlagName, true)
@@ -151,7 +144,6 @@ t.Parallel()
 }
 
 func Test_configExists_child(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	valuesYaml := fmt.Sprintf("children:\n  child: foo")
@@ -163,7 +155,6 @@ t.Parallel()
 }
 
 func Test_configExists_no_path(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	valuesYaml := fmt.Sprintf("snafu: true")
@@ -175,7 +166,6 @@ t.Parallel()
 }
 
 func Test_configNotExists(t *testing.T) {
-t.Parallel()
 	setupTestCommand()
 
 	valuesYaml := fmt.Sprintf("children:\n  child: foo")
@@ -187,7 +177,6 @@ t.Parallel()
 }
 
 func Test_IsJXBoot(t *testing.T) {
-t.Parallel()
 	orig, found := os.LookupEnv(jxInterpretPipelineEnvKey)
 	defer func() {
 		if found {
@@ -211,7 +200,6 @@ t.Parallel()
 }
 
 func setupTestConfig(t *testing.T, config string) (string, func(string)) {
-t.Parallel()
 	setupTestCommand()
 
 	tmpDir, err := ioutil.TempDir("", "")

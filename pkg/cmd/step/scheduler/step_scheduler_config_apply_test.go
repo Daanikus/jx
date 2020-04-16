@@ -36,7 +36,6 @@ import (
 )
 
 func TestStepSchedulerConfigApplyNonGitopsAll(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerApplyTestOptions{}
@@ -49,7 +48,6 @@ t.Parallel()
 }
 
 func TestStepSchedulerConfigApplyNonGitopsDefaultScheduler(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerApplyTestOptions{}
@@ -62,7 +60,6 @@ t.Parallel()
 }
 
 func TestStepSchedulerConfigApplyNonGitopsRepoScheduler(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerApplyTestOptions{}
@@ -75,7 +72,6 @@ t.Parallel()
 }
 
 func TestStepSchedulerConfigApplyNonGitopsRepoGroupScheduler(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerApplyTestOptions{}
@@ -88,7 +84,6 @@ t.Parallel()
 }
 
 func TestStepSchedulerConfigApplyGitopsAll(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerApplyTestOptions{}
@@ -115,7 +110,6 @@ t.Parallel()
 }
 
 func TestStepSchedulerConfigApplyGitopsDefaultScheduler(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerApplyTestOptions{}
@@ -142,7 +136,6 @@ t.Parallel()
 }
 
 func TestStepSchedulerConfigApplyGitopsRepoScheduler(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerApplyTestOptions{}
@@ -169,7 +162,6 @@ t.Parallel()
 }
 
 func TestStepSchedulerConfigApplyGitopsRepoGroupScheduler(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerApplyTestOptions{}
@@ -236,7 +228,6 @@ type StepSchedulerApplyTestOptions struct {
 
 // CreateAppTestOptions configures the mock environment for running apps related tests
 func (o *StepSchedulerApplyTestOptions) createSchedulerTestOptions(testType string, gitOps bool, t *testing.T) {
-t.Parallel()
 	mockFactory := cmd_test.NewMockFactory()
 	commonOpts := opts.NewCommonOptionsWithFactory(mockFactory)
 	testhelpers.ConfigureTestOptions(&commonOpts, gits_test.NewMockGitter(), helm_test.NewMockHelmer())

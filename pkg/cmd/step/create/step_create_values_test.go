@@ -45,7 +45,6 @@ import (
 var timeout = 5 * time.Second
 
 func TestCreateValuesFileWithVault(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 
 	sourceData := filepath.Join("test_data", "step_create_values", "install")
@@ -166,7 +165,6 @@ t.Parallel()
 }
 
 func TestCreateValuesFileWithLocalSecrets(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 
 	sourceData := filepath.Join("test_data", "step_create_values", "local_secrets_install")

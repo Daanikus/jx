@@ -27,7 +27,6 @@ const (
 )
 
 func TestGetAppsGitops(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	name1UUID, err := uuid.NewV4()
@@ -62,7 +61,6 @@ t.Parallel()
 }
 
 func TestGetApps(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
@@ -98,7 +96,6 @@ t.Parallel()
 }
 
 func TestGetAppsWithErrorGettingStatus(t *testing.T) {
-t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 
@@ -137,7 +134,6 @@ t.Parallel()
 }
 
 func TestGetAppsWithErrorGettingStatusWithOutput(t *testing.T) {
-t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 
@@ -176,7 +172,6 @@ t.Parallel()
 }
 
 func TestGetApp(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
@@ -212,7 +207,6 @@ t.Parallel()
 }
 
 func TestGetAppWithShortName(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
@@ -248,7 +242,6 @@ t.Parallel()
 }
 
 func TestGetAppsHasStatus(t *testing.T) {
-t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 
@@ -287,7 +280,6 @@ t.Parallel()
 }
 
 func TestGetAppsAsJson(t *testing.T) {
-t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 
@@ -332,7 +324,6 @@ t.Parallel()
 }
 
 func TestGetAppsAsYaml(t *testing.T) {
-t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)
 
@@ -377,7 +368,6 @@ t.Parallel()
 }
 
 func TestGetAppNotFound(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := testhelpers.CreateAppTestOptions(false, "", t)

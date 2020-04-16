@@ -49,7 +49,7 @@ import (
 )
 
 func setupTestPullRequestOperation(t *testing.T) operations.PullRequestOperation {
-t.Parallel()
+	t.Parallel()
 	_, _, _, commonOpts, _ := getFakeClientsAndNs(t)
 
 	testOrgName := "testowner"
@@ -85,7 +85,6 @@ t.Parallel()
 }
 
 func TestCreatePullRequest(t *testing.T) {
-t.Parallel()
 	prOpts := setupTestPullRequestOperation(t)
 
 	prOpts.GitURLs = []string{"testowner/testrepo"}
@@ -111,7 +110,6 @@ t.Parallel()
 }
 
 func TestCreatePullRequestsWithLabels(t *testing.T) {
-t.Parallel()
 	prOpts := setupTestPullRequestOperation(t)
 
 	prOpts.GitURLs = []string{"testowner/testrepo"}
@@ -161,7 +159,6 @@ t.Parallel()
 }
 
 func TestCreatePullRequestWithMatrixUpdatePaths(t *testing.T) {
-t.Parallel()
 
 	_, _, _, commonOpts, _ := getFakeClientsAndNs(t)
 
@@ -286,7 +283,6 @@ t.Parallel()
 }
 
 func TestCreateDependencyUpdatePRDetails(t *testing.T) {
-t.Parallel()
 	_, _, _, commonOpts, _ := getFakeClientsAndNs(t)
 
 	commonOpts.SetGit(gits.NewGitFake())
@@ -347,7 +343,6 @@ t.Parallel()
 }
 
 func TestAddDependencyMatrixUpdatePaths(t *testing.T) {
-t.Parallel()
 	testOrgName := "testowner"
 	testRepoName := "testrepo"
 	viaRepo := "wiley"
@@ -462,7 +457,6 @@ func getFakeClientsAndNs(t *testing.T) (versioned.Interface, tektonclient.Interf
 }
 
 func TestCreatePullRequestBuildersFn(t *testing.T) {
-t.Parallel()
 	fn := operations.CreatePullRequestBuildersFn("1.0.1")
 	dir, err := ioutil.TempDir("", "")
 	defer func() {
@@ -484,7 +478,6 @@ t.Parallel()
 }
 
 func TestCreatePullRequestGitReleasesFn(t *testing.T) {
-t.Parallel()
 	t.Run("found", func(t *testing.T) {
 		pegomock.RegisterMockTestingT(t)
 		commonOpts := &opts.CommonOptions{}
@@ -576,7 +569,6 @@ t.Parallel()
 }
 
 func TestCreatePullRequestRegexFn(t *testing.T) {
-t.Parallel()
 	t.Run("capture-groups", func(t *testing.T) {
 
 		dir, err := ioutil.TempDir("", "")
@@ -641,7 +633,6 @@ def:
 }
 
 func TestCreateChartChangeFilesFn(t *testing.T) {
-t.Parallel()
 	t.Run("from-chart-sources", func(t *testing.T) {
 		pegomock.RegisterMockTestingT(t)
 		helmer := helm_test.NewMockHelmer()
@@ -748,7 +739,6 @@ t.Parallel()
 }
 
 func TestPullRequestOperation_WrapChangeFilesWithCommitFn(t *testing.T) {
-t.Parallel()
 
 	commonOpts := &opts.CommonOptions{}
 	gitter := gits.NewGitCLI()

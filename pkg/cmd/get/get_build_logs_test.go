@@ -35,7 +35,6 @@ type BuildLogsTestWriter struct {
 }
 
 func TestGetTektonLogsForRunningBuild(t *testing.T) {
-t.Parallel()
 	commonOpts := opts.NewCommonOptionsWithFactory(fake.NewFakeFactory())
 	commonOpts.BatchMode = true
 	testCaseDir := path.Join("test_data", "get_build_logs", "tekton_build_logs")
@@ -91,7 +90,6 @@ t.Parallel()
 }
 
 func TestGetTektonLogsForRunningBuildWithPendingPod(t *testing.T) {
-t.Parallel()
 	commonOpts := opts.NewCommonOptionsWithFactory(fake.NewFakeFactory())
 	commonOpts.BatchMode = true
 	testCaseDir := path.Join("test_data", "get_build_logs", "tekton_build_logs_pending")
@@ -131,7 +129,6 @@ t.Parallel()
 }
 
 func TestGetTektonLogsForRunningBuildWithLegacyRepoLabel(t *testing.T) {
-t.Parallel()
 	commonOpts := opts.NewCommonOptionsWithFactory(fake.NewFakeFactory())
 	commonOpts.BatchMode = true
 	testCaseDir := path.Join("test_data", "get_build_logs", "tekton_build_logs_legacy_label")
@@ -187,7 +184,6 @@ t.Parallel()
 }
 
 func TestGetTektonLogsForRunningBuildWithWaitTime(t *testing.T) {
-t.Parallel()
 	commonOpts := opts.NewCommonOptionsWithFactory(fake.NewFakeFactory())
 	commonOpts.BatchMode = true
 	testCaseDir := path.Join("test_data", "get_build_logs", "tekton_build_logs")
@@ -245,7 +241,6 @@ t.Parallel()
 }
 
 func TestGetTektonLogsForStoredLogs(t *testing.T) {
-t.Parallel()
 	t.Skip("Skipping until we find a way to mock the gsutil calls")
 	commonOpts := opts.NewCommonOptionsWithFactory(fake.NewFakeFactory())
 	commonOpts.BatchMode = true
@@ -304,7 +299,6 @@ t.Parallel()
 }
 
 func TestWithMetapipeline(t *testing.T) {
-t.Parallel()
 	testCaseDir := path.Join("test_data", "get_build_logs", "with-metapipeline")
 
 	activities := tekton_helpers_test.AssertLoadSinglePipelineActivity(t, testCaseDir)
@@ -359,7 +353,6 @@ t.Parallel()
 }
 
 func TestGetTektonLogsForRunningBuildWithMultipleStages(t *testing.T) {
-t.Parallel()
 	commonOpts := opts.NewCommonOptionsWithFactory(fake.NewFakeFactory())
 	commonOpts.BatchMode = true
 	testCaseDir := path.Join("test_data", "get_build_logs", "multiple_stages")

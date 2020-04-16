@@ -33,7 +33,6 @@ var (
 )
 
 func TestUninstallOptions_Run_ContextSpecifiedAsOption_FailsWhenContextNamesDoNotMatch(t *testing.T) {
-t.Parallel()
 	setup(t, "current-context")
 	defer tearDown(t)
 
@@ -50,7 +49,6 @@ t.Parallel()
 }
 
 func TestUninstallOptions_Run_ContextSpecifiedAsOption_PassWhenContextNamesMatch(t *testing.T) {
-t.Parallel()
 	setup(t, "correct-context-to-delete")
 	defer tearDown(t)
 
@@ -79,7 +77,6 @@ t.Parallel()
 }
 
 func TestUninstallOptions_Run_ContextSpecifiedAsOption_PassWhenForced(t *testing.T) {
-t.Parallel()
 	setup(t, "correct-context-to-delete")
 	defer tearDown(t)
 
@@ -106,7 +103,6 @@ t.Parallel()
 }
 
 func TestUninstallOptions_Run_ContextSpecifiedViaCli_FailsWhenContextNamesDoNotMatch(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 
 	setup(t, "current-context")
@@ -149,7 +145,6 @@ t.Parallel()
 }
 
 func TestUninstallOptions_Run_ContextSpecifiedViaCli_PassWhenContextNamesMatch(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 
 	setup(t, "correct-context-to-delete")
@@ -205,7 +200,6 @@ t.Parallel()
 }
 
 func TestDeleteReleaseIfPresent(t *testing.T) {
-t.Parallel()
 	RegisterMockTestingT(t)
 	commonOpts := opts.NewCommonOptionsWithFactory(clients_mocks.NewMockFactory())
 	o := &uninstall.UninstallOptions{
@@ -224,7 +218,6 @@ t.Parallel()
 }
 
 func TestForceDeleteReleaseIfPresentNotFound(t *testing.T) {
-t.Parallel()
 	RegisterMockTestingT(t)
 	commonOpts := opts.NewCommonOptionsWithFactory(clients_mocks.NewMockFactory())
 	o := &uninstall.UninstallOptions{
@@ -243,7 +236,6 @@ t.Parallel()
 }
 
 func TestDeleteReleaseNotFound(t *testing.T) {
-t.Parallel()
 	RegisterMockTestingT(t)
 	commonOpts := opts.NewCommonOptionsWithFactory(clients_mocks.NewMockFactory())
 	o := &uninstall.UninstallOptions{
@@ -265,7 +257,6 @@ t.Parallel()
 }
 
 func TestForceDeleteReleaseNotFound(t *testing.T) {
-t.Parallel()
 	RegisterMockTestingT(t)
 	commonOpts := opts.NewCommonOptionsWithFactory(clients_mocks.NewMockFactory())
 	o := &uninstall.UninstallOptions{

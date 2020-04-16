@@ -35,7 +35,6 @@ import (
 )
 
 func TestStepSchedulerConfigMigrateNonGitopsBasic(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerMigrateTestOptions{}
@@ -50,7 +49,6 @@ t.Parallel()
 }
 
 func TestStepSchedulerConfigMigrateNonGitopsAdvanced(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerMigrateTestOptions{}
@@ -65,7 +63,6 @@ t.Parallel()
 }
 
 func TestStepSchedulerConfigMigrateGitopsBasic(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "NewTerminal() does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	testOptions := &StepSchedulerMigrateTestOptions{}
@@ -164,7 +161,6 @@ type StepSchedulerMigrateTestOptions struct {
 
 // CreateAppTestOptions configures the mock environment for running apps related tests
 func (o *StepSchedulerMigrateTestOptions) createSchedulerMigrateTestOptions(testType string, gitOps bool, t *testing.T) {
-t.Parallel()
 	mockFactory := cmd_test.NewMockFactory()
 	commonOpts := opts.NewCommonOptionsWithFactory(mockFactory)
 	testhelpers.ConfigureTestOptions(&commonOpts, gits_test.NewMockGitter(), helm_test.NewMockHelmer())

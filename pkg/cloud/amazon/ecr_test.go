@@ -14,7 +14,6 @@ import (
 )
 
 func TestCreateNewSessionWithDefaultRegion(t *testing.T) {
-t.Parallel()
 	// TODO Refactor for encapsulation
 	oldHome, err := testutils.SwitchAWSHome()
 	defer testutils.RestoreHome(oldHome)
@@ -27,7 +26,6 @@ t.Parallel()
 }
 
 func TestCreateNewSessionWithRegionFromAwsRegion(t *testing.T) {
-t.Parallel()
 	// TODO Refactor for encapsulation
 	os.Setenv("AWS_REGION", "us-east-1")
 	os.Setenv("AWS_DEFAULT_REGION", "")

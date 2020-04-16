@@ -22,7 +22,6 @@ import (
 )
 
 func TestMetaPipeline(t *testing.T) {
-t.Parallel()
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Meta pipeline Suite")
 }

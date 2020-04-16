@@ -22,7 +22,6 @@ import (
 )
 
 func TestReportFromSingleFile(t *testing.T) {
-t.Parallel()
 	mock := reportingtools_test.NewMockXUnitClient(pegomock.WithT(t))
 
 	dirName, err := ioutil.TempDir("", uuid.New().String())
@@ -59,7 +58,6 @@ t.Parallel()
 }
 
 func TestReportFromTestSuites(t *testing.T) {
-t.Parallel()
 	mock := reportingtools_test.NewMockXUnitClient(pegomock.WithT(t))
 
 	dirName, err := ioutil.TempDir("", uuid.New().String())
@@ -96,7 +94,6 @@ t.Parallel()
 }
 
 func TestReportWithMultipleFiles(t *testing.T) {
-t.Parallel()
 	mock := reportingtools_test.NewMockXUnitClient(pegomock.WithT(t))
 
 	dirName, err := ioutil.TempDir("", uuid.New().String())
@@ -150,7 +147,6 @@ t.Parallel()
 }
 
 func TestUnableToEnsureXUnitViewer(t *testing.T) {
-t.Parallel()
 	mock := reportingtools_test.NewMockXUnitClient(pegomock.WithT(t))
 
 	o := StepReportJUnitOptions{
@@ -168,7 +164,6 @@ t.Parallel()
 }
 
 func TestErrorNoMatchingFilesFound(t *testing.T) {
-t.Parallel()
 	mock := reportingtools_test.NewMockXUnitClient(pegomock.WithT(t))
 	o := StepReportJUnitOptions{
 		XUnitClient: mock,

@@ -15,7 +15,7 @@ import (
 )
 
 func Test_GetVault_DoesNotPromptUserIfOnlyOneVaultInNamespace(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	vaultOperatorClient, factory, kubeClient, err := setupMocks(t, nil)
 	createMockedVault("myVault", "myVaultNamespace", "foo.bar", "myJWT", vaultOperatorClient, kubeClient)
 
@@ -31,7 +31,7 @@ t.Parallel()
 }
 
 func Test_GetVault_InclusterUsesInternalVaultURL(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	vaultOperatorClient, factory, kubeClient, err := setupMocks(t, nil)
 	createMockedVault("myVault", "myVaultNamespace", "foo.bar", "myJWT", vaultOperatorClient, kubeClient)
 
@@ -47,7 +47,7 @@ t.Parallel()
 }
 
 func Test_GetVault_ErrorsIfNoVaultsInNamespace(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	vaultOperatorClient, factory, kubeClient, err := setupMocks(t, nil)
 	createMockedVault("myVault", "myVaultNamespace", "foo.bar", "myJWT", vaultOperatorClient, kubeClient)
 
@@ -60,7 +60,6 @@ t.Parallel()
 }
 
 func Test_GetVault_ErrorsIfRequestedVaultDoesNotExist(t *testing.T) {
-t.Parallel()
 	vaultOperatorClient, factory, kubeClient, err := setupMocks(t, nil)
 	createMockedVault("myVault", "myVaultNamespace", "foo.bar", "myJWT", vaultOperatorClient, kubeClient)
 
@@ -73,7 +72,7 @@ t.Parallel()
 }
 
 func Test_GetVault_GetExplicitVaultSucceedsWhenTwoVaultsAreDefined(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	vaultOperatorClient, factory, kubeClient, err := setupMocks(t, nil)
 	createMockedVault("vault1", "myVaultNamespace", "one.ah.ah.ah", "Count", vaultOperatorClient, kubeClient)
 	createMockedVault("vault2", "myVaultNamespace", "two.ah.ah.ah", "Von-Count", vaultOperatorClient, kubeClient)
@@ -90,7 +89,7 @@ t.Parallel()
 }
 
 func Test_GetVault_PromptsUserIfMoreThanOneVaultInNamespace(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 
 	// mock terminal

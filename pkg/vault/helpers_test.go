@@ -17,7 +17,7 @@ import (
 )
 
 func TestReplaceURIs(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	vaultClient := vault_test.NewMockClient()
 	path := "/baz/qux"
@@ -49,7 +49,6 @@ t.Parallel()
 }
 
 func TestReplaceRealExampleURI(t *testing.T) {
-t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	vaultClient := vault_test.NewMockClient()
 	path := "secret/gitOps/jenkins-x/environment-tekton-mole-dev/connectors-github-config-clientid-secret"

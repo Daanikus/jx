@@ -33,7 +33,7 @@ const (
 )
 
 func TestGetRemoteForURL(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	gitter := gits.NewGitCLI()
 
 	repoDir, err := ioutil.TempDir("", "get-remote-for-url")
@@ -65,7 +65,7 @@ t.Parallel()
 }
 
 func TestFetchAndMergeOneSHA(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// This forkAndPullTest only uses local repos, so it's safe to use real git
 	env := prepareFetchAndMergeTests(t)
 	defer env.Cleanup()
@@ -78,7 +78,7 @@ t.Parallel()
 }
 
 func TestFetchAndMergeMultipleSHAs(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// This forkAndPullTest only uses local repos, so it's safe to use real git
 	env := prepareFetchAndMergeTests(t)
 	defer env.Cleanup()
@@ -97,7 +97,7 @@ t.Parallel()
 }
 
 func TestFetchAndMergeSHAAgainstNonHEADSHA(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// This forkAndPullTest only uses local repos, so it's safe to use real git
 	env := prepareFetchAndMergeTests(t)
 	defer env.Cleanup()
@@ -133,7 +133,7 @@ type FetchAndMergeTestEnv struct {
 }
 
 func prepareFetchAndMergeTests(t *testing.T) FetchAndMergeTestEnv {
-t.Parallel()
+	t.Parallel()
 	gitter := gits.NewGitCLI()
 
 	// Prepare a git repo to forkAndPullTest - this is our "remote"
@@ -226,7 +226,7 @@ t.Parallel()
 }
 
 func TestIsUnadvertisedObjectError(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// Text copied from an error log
 	err := errors.New("failed to clone three times it's likely things wont recover so lets kill the process after 3 attempts, last error: failed to fetch [pull/4042/head:PR-4042 3e1a943c00186c8aa364498201974c9ab734b353] from https://github.com/jenkins-x/jx.git in directory /tmp/git599291101: git output: error: Server does not allow request for unadvertised object 3e1a943c00186c8aa364498201974c9ab734b353: failed to run 'git fetch origin --depth=1 pull/4042/head:PR-4042 3e1a943c00186c8aa364498201974c9ab734b353' command in directory '/tmp/git599291101', output: 'error: Server does not allow request for unadvertised object 3e1a943c00186c8aa364498201974c9ab734b353'")
 	assert.True(t, gits.IsUnadvertisedObjectError(err))
@@ -257,7 +257,7 @@ type forkAndPullTest struct {
 }
 
 func TestNoForkAndNewDir(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "noForkAndNewDir",
@@ -315,7 +315,6 @@ t.Parallel()
 	})
 }
 func TestNewForkAndNewDir(t *testing.T) {
-t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "newForkAndNewDir",
@@ -389,7 +388,7 @@ t.Parallel()
 	})
 }
 func TestNoFormAndExistingDir(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "noForkAndExistingDir",
@@ -448,7 +447,7 @@ t.Parallel()
 }
 
 func TestNewForkAndExistingDir(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "newForkAndExistingDir",
@@ -517,7 +516,7 @@ t.Parallel()
 	})
 }
 func TestExistingForkAndNewDir(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "existingForkAndNewDir",
@@ -617,7 +616,7 @@ t.Parallel()
 	})
 }
 func TestExistingForkAndExistingDir(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "existingForkAndExistingDir",
@@ -716,7 +715,7 @@ t.Parallel()
 	})
 }
 func TestExistingForkAndExistingCheckout(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "existingForkAndExistingCheckout",
@@ -820,7 +819,7 @@ t.Parallel()
 	})
 }
 func TestExistingForkAndExistingCheckoutWithDifferentBaseRef(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "existingForkAndExistingCheckoutWithDifferentBaseRef",
@@ -924,7 +923,7 @@ t.Parallel()
 	})
 }
 func TestExistingForkAndExistingCheckoutWithLocalModifications(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "existingForkAndExistingCheckoutWithLocalModifications",
@@ -1032,7 +1031,7 @@ t.Parallel()
 	})
 }
 func TestExistingForkAndExistingCheckoutWithNonConflictingLocalModifications(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 
 	runForkAndPullTestCase(t, forkAndPullTest{
 		name: "existingForkAndExistingCheckoutWithNonConflictingLocalModifications",
@@ -1141,7 +1140,7 @@ t.Parallel()
 }
 
 func runForkAndPullTestCase(t *testing.T, tt forkAndPullTest) {
-t.Parallel()
+	t.Parallel()
 	err := tt.args.initFn(&tt.args)
 	assert.NoError(t, err)
 	dir, baseRef, upstreamInfo, forkInfo, err := gits.ForkAndPullRepo(tt.args.gitURL, tt.args.dir, tt.args.baseRef, tt.args.branchName, tt.args.provider, tt.args.gitter, "")
@@ -1175,7 +1174,7 @@ t.Parallel()
 }
 
 func TestDuplicateGitRepoFromCommitish(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	gitter := gits.NewGitCLI()
 	originalRepo, err := gits.NewFakeRepository("acme", "roadrunner", func(dir string) error {
 		err := ioutil.WriteFile(filepath.Join(dir, "README"), []byte("Hello!"), 0655)
@@ -1533,7 +1532,7 @@ t.Parallel()
 }
 
 func Test_DuplicateGitRepoFromCommitish_returns_error_if_target_repo_exists(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	gitter := gits.NewGitCLI()
 	originalRepo, err := gits.NewFakeRepository("acme", "roadrunner", func(dir string) error {
 		err := ioutil.WriteFile(filepath.Join(dir, "README"), []byte("Hello!"), 0655)
@@ -1563,7 +1562,7 @@ t.Parallel()
 }
 
 func TestPushRepoAndCreatePullRequest(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	type args struct {
 		gitURL     string
 		forkGitURL string
@@ -2146,7 +2145,7 @@ func TestGetGitInfoFromDirectoryNoGit(t *testing.T) {
 }
 
 func Test_SquashIntoSingleCommit_success(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	gitDir, err := ioutil.TempDir("", "test-repo")
 	assert.NoError(t, err)
 	defer func() {
@@ -2185,7 +2184,7 @@ t.Parallel()
 }
 
 func Test_SquashIntoSingleCommit_with_only_one_commit(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	gitDir, err := ioutil.TempDir("", "test-repo")
 	assert.NoError(t, err)
 	defer func() {
@@ -2218,7 +2217,7 @@ t.Parallel()
 }
 
 func Test_SquashIntoSingleCommit_with_no_git_dir_returns_error(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	gitDir, err := ioutil.TempDir("", "test-repo")
 	assert.NoError(t, err)
 	defer func() {
@@ -2250,14 +2249,14 @@ func commitCount(t *testing.T, repoDir string) int {
 }
 
 func TestIsCouldntFindRemoteRefErrorHandlesUppercaseRef(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	error := errors.New(" fatal: couldn't find remote ref add-app-your-app-0.0.0-SNAPSHOT-PR-1234-1:")
 	ref := "add-app-your-app-0.0.0-SNAPSHOT-PR-1234-1"
 	assert.True(t, gits.IsCouldntFindRemoteRefError(error, ref))
 }
 
 func TestIsDefaultBootConfigURL(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	wrongURL := "https://github.com/something-else/jenkins-x-boot-config.git"
 
 	var rightURLWithDotGit string

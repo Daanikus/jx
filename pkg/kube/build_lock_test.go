@@ -23,7 +23,7 @@ import (
 )
 
 func Test_compareBuildLocks(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	time1 := time.Date(2000, 1, 1, 0, 0, 0, 0, time.UTC).Format(time.RFC3339Nano)
 	time2 := time.Date(2000, 1, 1, 0, 0, 0, 200000000, time.UTC).Format(time.RFC3339Nano)
 	time3 := time.Date(2000, 1, 1, 0, 0, 0, 210000000, time.UTC).Format(time.RFC3339Nano)
@@ -526,7 +526,7 @@ func buildLock_AssertLockFromPod(t *testing.T, client kubernetes.Interface, name
 }
 
 func TestAcquireBuildLock(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// just acquire a lock when no lock exists
 	client := buildLock_Client(t)
 	pod := buildLock_Pod(t, client, "my-owner", "my-repository", "my-branch", "13")
@@ -540,7 +540,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_interpret(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// acquire a lock with an intepreted pipeline
 	client := buildLock_Client(t)
 	clean := buildLock_Env(t, "my-owner", "my-repository", "my-branch", "13", true)
@@ -566,7 +566,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_invalidLock(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// acquire a lock when the previous lock is invalid
 	client := buildLock_Client(t)
 	previous := buildLock_Pod(t, client, "my-owner", "my-repository", "my-branch", "42")
@@ -586,7 +586,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_previousNotFound(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// acquire a lock when the locking pod does not exist
 	client := buildLock_Client(t)
 	previous := buildLock_Pod(t, client, "my-owner", "my-repository", "my-branch", "42")
@@ -605,7 +605,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_previousFinished(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// acquire a lock when the locking pod has finished
 	client := buildLock_Client(t)
 	previous := buildLock_Pod(t, client, "my-owner", "my-repository", "my-branch", "42")
@@ -625,7 +625,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_expired(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// acquire a lock when the previous lock has expired
 	client := buildLock_Client(t)
 	buildLock_Lock(t, client, "my-namespace", "my-owner", "my-repository", "my-branch", "42", 42, time.Duration(-1)*time.Minute)
@@ -641,7 +641,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_higherRuns(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// fails at acquiring the lock because an higher build is running
 	client := buildLock_Client(t)
 	previous := buildLock_Pod(t, client, "my-owner", "my-repository", "my-branch", "42")
@@ -655,7 +655,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_laterRuns(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// fails at acquiring the lock because a later build is running
 	client := buildLock_Client(t)
 	previous := buildLock_Pod(t, client, "other-owner", "other-repository", "other-branch", "42")
@@ -669,7 +669,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_waitLowerPodDeleted(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// wait for a lower build to be deleted
 	client := buildLock_Client(t)
 	counter := buildLock_CountWatch(client)
@@ -716,7 +716,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_waitLowerLockDeleted(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// wait for a lower build lock to be deleted
 	client := buildLock_Client(t)
 	counter := buildLock_CountWatch(client)
@@ -763,7 +763,6 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_waitEarlierFinished(t *testing.T) {
-t.Parallel()
 	// wait for a lower build to finish
 	client := buildLock_Client(t)
 	counter := buildLock_CountWatch(client)
@@ -810,7 +809,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_waitLowerExpired(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// wait for a lock to expire
 	client := buildLock_Client(t)
 	counter := buildLock_CountWatch(client)
@@ -854,7 +853,7 @@ t.Parallel()
 }
 
 func TestAcquireBuildLock_waitButHigher(t *testing.T) {
-t.Parallel()
+	t.Parallel()
 	// wait for a lower run to finish, but an higher run appears
 	client := buildLock_Client(t)
 	counter := buildLock_CountWatch(client)

@@ -37,7 +37,6 @@ import (
 var timeout = 5 * time.Second
 
 func TestUpgradeAppForGitOps(t *testing.T) {
-t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(true, "", t)
 	defer func() {
 		err := testOptions.Cleanup()
@@ -105,7 +104,6 @@ t.Parallel()
 }
 
 func TestUpgradeAppWithShortNameForGitOps(t *testing.T) {
-t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(true, "", t)
 	defer func() {
 		err := testOptions.Cleanup()
@@ -186,7 +184,6 @@ t.Parallel()
 }
 
 func TestUpgradeAppWithExistingAndDefaultAnswersForGitOpsInBatchMode(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
@@ -275,7 +272,6 @@ species: human
 }
 
 func TestUpgradeAppWithExistingAndDefaultAnswersForGitOps(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
@@ -376,7 +372,6 @@ species: martian
 }
 
 func TestUpgradeAppWithExistingAndDefaultAnswersAndAskAllForGitOps(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
@@ -480,7 +475,6 @@ species: martian
 }
 
 func TestUpgradeMissingExistingOrDefaultInBatchMode(t *testing.T) {
-t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on windows")
 	pegomock.RegisterMockTestingT(t)
 	tests.Retry(t, 5, time.Second*10, func(r *tests.R) {
@@ -559,7 +553,6 @@ t.Parallel()
 }
 
 func TestUpgradeAppToLatestForGitOps(t *testing.T) {
-t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(true, "", t)
 	defer func() {
 		err := testOptions.Cleanup()
@@ -624,7 +617,6 @@ t.Parallel()
 }
 
 func TestUpgradeAllAppsForGitOps(t *testing.T) {
-t.Parallel()
 	testOptions := testhelpers.CreateAppTestOptions(true, "", t)
 	defer func() {
 		err := testOptions.Cleanup()

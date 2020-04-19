@@ -15,14 +15,12 @@ import (
 )
 
 func TestGetSimplifiedClusterName(t *testing.T) {
-	t.Parallel()
 	simpleName := cluster.SimplifiedClusterName("gke_jenkinsx-dev_europe-west1-b_my-cluster-name")
 
 	assert.Equal(t, "my-cluster-name", simpleName)
 }
 
 func TestShortClusterName(t *testing.T) {
-t.Parallel()
 	kuber := kube_test.NewMockKuber()
 
 	config := api.Config{
@@ -66,7 +64,6 @@ t.Parallel()
 }
 
 func TestClusterName(t *testing.T) {
-t.Parallel()
 	kuber := kube_test.NewMockKuber()
 
 	config := api.Config{
@@ -84,7 +81,6 @@ t.Parallel()
 }
 
 func TestSystemVaultNameForCluster(t *testing.T) {
-t.Parallel()
 	actual := vault.SystemVaultNameForCluster("jstrachan-kp38")
 	assert.Equal(t, "jx-vault-jstrachan-kp3", actual, "system vault name")
 }

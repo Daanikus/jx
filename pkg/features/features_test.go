@@ -10,7 +10,6 @@ import (
 )
 
 func TestCheckTektonEnabledOss(t *testing.T) {
-t.Parallel()
 
 	//Given
 	features.SetFeatureFlagToken("oss")
@@ -24,7 +23,6 @@ t.Parallel()
 }
 
 func TestCheckTektonDisabledByDefaultWithToken(t *testing.T) {
-t.Parallel()
 
 	//Given
 	features.SetFeatureFlagToken("test-token")
@@ -38,7 +36,6 @@ t.Parallel()
 }
 
 func TestCheckStaticJenkinsEnabledOss(t *testing.T) {
-t.Parallel()
 
 	//Given
 	features.SetFeatureFlagToken("oss")
@@ -52,7 +49,6 @@ t.Parallel()
 }
 
 func TestCheckStaticJenkinsDisabledByDefaultWithToken(t *testing.T) {
-t.Parallel()
 
 	//Given
 	features.SetFeatureFlagToken("test-token")

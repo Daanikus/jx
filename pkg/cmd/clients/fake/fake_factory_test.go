@@ -11,6 +11,7 @@ import (
 )
 
 func TestFakeFactory(t *testing.T) {
+t.Parallel()
 	f := NewFakeFactory()
 	client, ns, err := f.CreateKubeClient()
 	require.NoError(t, err, "CreateKubeClient() failed")

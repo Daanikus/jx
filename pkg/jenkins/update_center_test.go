@@ -12,10 +12,12 @@ import (
 )
 
 func TestUpdateCenter(t *testing.T) {
+t.Parallel()
 	AssertLoadUpdateCenterFile(t, filepath.Join("test_data", "update_center.json"))
 }
 
 func TestUpdateCenterJSONP(t *testing.T) {
+t.Parallel()
 	AssertLoadUpdateCenterFile(t, filepath.Join("test_data", "update_center.jsonp"))
 }
 

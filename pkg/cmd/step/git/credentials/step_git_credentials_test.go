@@ -20,6 +20,7 @@ import (
 )
 
 func TestStepGitCredentials(t *testing.T) {
+t.Parallel()
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Step Git Credentials Suite")
 }

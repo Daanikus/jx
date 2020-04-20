@@ -23,6 +23,7 @@ var (
 )
 
 func TestPatchUpdateUserNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testUser)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -48,6 +49,7 @@ func TestPatchUpdateUserNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateUserWithChange(t *testing.T) {
+t.Parallel()
 	name := "susfu"
 	clonedUser := testUser.DeepCopy()
 	clonedUser.Spec.Name = name
@@ -82,6 +84,7 @@ func TestPatchUpdateUserWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateUserWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -101,6 +104,7 @@ func TestPatchUpdateUserWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateUserWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testUser)

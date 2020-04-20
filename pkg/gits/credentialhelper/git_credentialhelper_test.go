@@ -16,6 +16,7 @@ import (
 )
 
 func TestGitCredentialHelper(t *testing.T) {
+t.Parallel()
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "GitCredentials Suite")
 }

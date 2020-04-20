@@ -13,6 +13,7 @@ import (
 )
 
 func TestRegisterEnvironmentCRD(t *testing.T) {
+t.Parallel()
 	// mock factory
 	factory := cmd_mocks.NewMockFactory()
 
@@ -27,6 +28,7 @@ func TestRegisterEnvironmentCRD(t *testing.T) {
 }
 
 func TestRegisterPipelineStructureCRD(t *testing.T) {
+t.Parallel()
 	// mock factory
 	factory := cmd_mocks.NewMockFactory()
 

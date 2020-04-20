@@ -17,6 +17,7 @@ var (
 )
 
 func TestGitPublic(t *testing.T) {
+t.Parallel()
 	var gitPublicTests = []struct {
 		jsonFile          string
 		expectedGitPublic bool
@@ -44,6 +45,7 @@ func TestGitPublic(t *testing.T) {
 }
 
 func Test_GitPublic_and_GitPrivate_specified_throws_error(t *testing.T) {
+t.Parallel()
 	content, err := ioutil.ReadFile(path.Join(testDataDir, "git_public_true_git_private_true.json"))
 	assert.NoError(t, err)
 

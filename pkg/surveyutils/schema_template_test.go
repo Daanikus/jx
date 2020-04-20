@@ -16,6 +16,7 @@ import (
 )
 
 func TestTemplateSchemaFile(t *testing.T) {
+t.Parallel()
 	type testCase struct {
 		GitKind, GitServer, ExpectedTokenDescription, ExpectedPattern string
 		ExpectedMin, ExpectedMax                                      int

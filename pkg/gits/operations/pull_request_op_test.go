@@ -49,6 +49,7 @@ import (
 )
 
 func setupTestPullRequestOperation(t *testing.T) operations.PullRequestOperation {
+	t.Parallel()
 	_, _, _, commonOpts, _ := getFakeClientsAndNs(t)
 
 	testOrgName := "testowner"

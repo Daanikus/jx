@@ -17,6 +17,7 @@ import (
 )
 
 func TestReplaceURIs(t *testing.T) {
+	t.Parallel()
 	pegomock.RegisterMockTestingT(t)
 	vaultClient := vault_test.NewMockClient()
 	path := "/baz/qux"

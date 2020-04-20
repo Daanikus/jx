@@ -122,16 +122,19 @@ func TestDeleteDirContentsExcept(t *testing.T) {
 }
 
 func TestToValidFileSystemName(t *testing.T) {
+t.Parallel()
 	assert.Equal(t, util.ToValidFileSystemName("x.y/z"), "x_y_z")
 }
 
 func Test_FileExists_for_non_existing_file_returns_false(t *testing.T) {
+t.Parallel()
 	exists, err := util.FileExists("/foo/bar")
 	assert.NoError(t, err)
 	assert.False(t, exists)
 }
 
 func Test_FileExists_for_existing_file_returns_true(t *testing.T) {
+t.Parallel()
 	tmpDir, err := ioutil.TempDir("", "Test_FileExists_for_existing_file_returns_true")
 	require.NoError(t, err, "failed to create temporary directory")
 	defer func() {
@@ -149,6 +152,7 @@ func Test_FileExists_for_existing_file_returns_true(t *testing.T) {
 }
 
 func Test_FileExists_for_existing_directory_returns_false(t *testing.T) {
+t.Parallel()
 	tmpDir, err := ioutil.TempDir("", "Test_FileExists_for_existing_file_returns_true")
 	require.NoError(t, err, "failed to create temporary directory")
 	defer func() {

@@ -18,6 +18,7 @@ type regexSplitData struct {
 }
 
 func TestRegexpSplit(t *testing.T) {
+t.Parallel()
 	testCases := []regexSplitData{
 		{
 			"foo/bar", ":|/", []string{"foo", "bar"},
@@ -34,11 +35,13 @@ func TestRegexpSplit(t *testing.T) {
 }
 
 func TestStringIndices(t *testing.T) {
+t.Parallel()
 	assertStringIndices(t, "foo/bar", "/", []int{3})
 	assertStringIndices(t, "/foo/bar", "/", []int{0, 4})
 }
 
 func TestRemoveStringFromSlice(t *testing.T) {
+t.Parallel()
 	beatles := []string{"paul", "john", "ringo", "george"}
 	betterBeatles := util.RemoveStringFromSlice(beatles, "ringo")
 
@@ -47,6 +50,7 @@ func TestRemoveStringFromSlice(t *testing.T) {
 }
 
 func TestRemoveStringFromSlice_NotAMember(t *testing.T) {
+t.Parallel()
 	beatles := []string{"paul", "john", "ringo", "george"}
 	betterBeatles := util.RemoveStringFromSlice(beatles, "Freddy")
 
@@ -59,6 +63,7 @@ func assertStringIndices(t *testing.T, text string, sep string, expected []int) 
 }
 
 func TestDiffSlices(t *testing.T) {
+t.Parallel()
 	// no inserts or deletes
 	assertDiffSlice(t, []string{"a", "b", "c"}, []string{"a", "b", "c"}, []string{}, []string{})
 
@@ -85,11 +90,13 @@ func assertDiffSlice(t *testing.T, originalSlice, newSlice, removed, added []str
 }
 
 func TestYesNo(t *testing.T) {
+t.Parallel()
 	assert.Equal(t, "Yes", util.YesNo(true), "Yes boolean conversion")
 	assert.Equal(t, "No", util.YesNo(false), "No boolean conversion")
 }
 
 func TestExtractKeyValuePairs(t *testing.T) {
+t.Parallel()
 	type testData struct {
 		keyValueArray []string
 		keyValueMap   map[string]string
@@ -122,6 +129,7 @@ func TestExtractKeyValuePairs(t *testing.T) {
 }
 
 func TestQuestionAnswer(t *testing.T) {
+t.Parallel()
 	assert.Equal(t, "? This is a question: and answer", util.QuestionAnswer("This is a question", "and answer"))
 }
 
@@ -155,10 +163,12 @@ func TestStripTrailingSlash(t *testing.T) {
 }
 
 func Test_StartsWith(t *testing.T) {
+t.Parallel()
 	assert.True(t, util.StartsWith("ML-a-machine-learning-quickstart", "ML-"))
 	assert.False(t, util.StartsWith("not-a-machine-learning-quickstart", "ML-"))
 }
 
 func Test_ToCamelCase(t *testing.T) {
+t.Parallel()
 	assert.Equal(t, util.ToCamelCase("my-super-name"), "MySuperName")
 }

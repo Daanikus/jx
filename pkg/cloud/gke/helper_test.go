@@ -9,6 +9,7 @@ import (
 )
 
 func TestParseContext(t *testing.T) {
+t.Parallel()
 	type args struct {
 		context string
 	}

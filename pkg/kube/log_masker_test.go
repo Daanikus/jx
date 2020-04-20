@@ -16,6 +16,7 @@ import (
 )
 
 func TestLogMasker(t *testing.T) {
+t.Parallel()
 	k8sObjects := []runtime.Object{
 		testkube.CreateFakeGitSecret(),
 	}
@@ -49,6 +50,7 @@ func TestLogMasker(t *testing.T) {
 }
 
 func TestLogMaskerFromMap(t *testing.T) {
+t.Parallel()
 	hideValues := []string{
 		"fakeuser",
 		"fakepwd",

@@ -23,6 +23,7 @@ var (
 )
 
 func TestPatchUpdateReleaseNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testRelease)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -48,6 +49,7 @@ func TestPatchUpdateReleaseNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateReleaseWithChange(t *testing.T) {
+t.Parallel()
 	name := "susfu"
 	clonedRelease := testRelease.DeepCopy()
 	clonedRelease.Spec.Name = name
@@ -82,6 +84,7 @@ func TestPatchUpdateReleaseWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateReleaseWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -101,6 +104,7 @@ func TestPatchUpdateReleaseWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateReleaseWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testRelease)

@@ -14,6 +14,7 @@ import (
 )
 
 func TestLoggingSetup(t *testing.T) {
+t.Parallel()
 	origLogLevel, exists := os.LookupEnv("JX_LOG_LEVEL")
 	if exists {
 		defer func() {

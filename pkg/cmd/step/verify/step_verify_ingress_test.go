@@ -29,6 +29,7 @@ import (
 )
 
 func TestVerifyIngress(t *testing.T) {
+t.Parallel()
 	testData := path.Join("test_data", "verify_ingress")
 	assert.DirExists(t, testData)
 

@@ -15,6 +15,7 @@ import (
 )
 
 func TestDisableIssuesForOrg(t *testing.T) {
+t.Parallel()
 	type repo struct {
 		gits.GitRepository
 		issues      map[int]*gits.FakeIssue

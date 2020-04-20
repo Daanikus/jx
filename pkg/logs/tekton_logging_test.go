@@ -41,6 +41,7 @@ const (
 )
 
 func TestGetTektonPipelinesWithActivePipelineActivityNoData(t *testing.T) {
+t.Parallel()
 	jxClient, tektonClient, _, _, ns := getFakeClientsAndNs(t)
 	tl := TektonLogger{
 		JXClient:     jxClient,
@@ -60,6 +61,7 @@ func TestGetTektonPipelinesWithActivePipelineActivityNoData(t *testing.T) {
 }
 
 func TestGetTektonPipelinesWithActivePipelineActivitySingleBuild(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data", "active_single_run")
 	jxClient, _, _, _, ns := getFakeClientsAndNs(t)
 
@@ -89,6 +91,7 @@ func TestGetTektonPipelinesWithActivePipelineActivitySingleBuild(t *testing.T) {
 }
 
 func TestGetTektonPipelinesWithActivePipelineActivityOnlyWaitingStep(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data", "only_waiting_step")
 	jxClient, _, _, _, ns := getFakeClientsAndNs(t)
 
@@ -116,6 +119,7 @@ func TestGetTektonPipelinesWithActivePipelineActivityOnlyWaitingStep(t *testing.
 
 // Based on a real case
 func TestGetTektonPipelinesWithActivePipelineActivityInvalidName(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data", "invalid_name")
 	jxClient, _, _, _, ns := getFakeClientsAndNs(t)
 
@@ -148,6 +152,7 @@ func TestGetTektonPipelinesWithActivePipelineActivityInvalidName(t *testing.T) {
 }
 
 func TestGetRunningBuildLogsNoBuildPods(t *testing.T) {
+t.Parallel()
 	jxClient, tektonClient, kubeClient, _, ns := getFakeClientsAndNs(t)
 	tl := TektonLogger{
 		JXClient:     jxClient,
@@ -169,6 +174,7 @@ func TestGetRunningBuildLogsNoBuildPods(t *testing.T) {
 }
 
 func TestGetRunningBuildLogsWithPipelineRunButNoBuildPods(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data")
 	_, _, kubeClient, _, ns := getFakeClientsAndNs(t)
 
@@ -197,6 +203,7 @@ func TestGetRunningBuildLogsWithPipelineRunButNoBuildPods(t *testing.T) {
 }
 
 func TestGetRunningBuildLogsNoMatchingBuildPods(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data")
 	jxClient, tektonClient, _, _, ns := getFakeClientsAndNs(t)
 
@@ -223,6 +230,7 @@ func TestGetRunningBuildLogsNoMatchingBuildPods(t *testing.T) {
 }
 
 func TestGetRunningBuildLogsWithMatchingBuildPods(t *testing.T) {
+t.Parallel()
 	// https://github.com/jenkins-x/jx/issues/5171
 	testCaseDir := path.Join("test_data")
 	_, _, _, _, ns := getFakeClientsAndNs(t)
@@ -258,6 +266,7 @@ func TestGetRunningBuildLogsWithMatchingBuildPods(t *testing.T) {
 }
 
 func TestGetRunningBuildLogsWithMatchingBuildPodsWithFailedContainerInTheMiddle(t *testing.T) {
+t.Parallel()
 	// https://github.com/jenkins-x/jx/issues/5171
 	testCaseDir := path.Join("test_data", "pod_with_failure")
 	_, _, _, _, ns := getFakeClientsAndNs(t)
@@ -293,6 +302,7 @@ func TestGetRunningBuildLogsWithMatchingBuildPodsWithFailedContainerInTheMiddle(
 }
 
 func TestGetRunningBuildLogsWithMatchingBuildPodsWithFailedMetapipeline(t *testing.T) {
+t.Parallel()
 	// https://github.com/jenkins-x/jx/issues/5171
 	testCaseDir := path.Join("test_data", "metapipeline_failure")
 	_, _, _, _, ns := getFakeClientsAndNs(t)
@@ -331,6 +341,7 @@ func TestGetRunningBuildLogsWithMatchingBuildPodsWithFailedMetapipeline(t *testi
 }
 
 func TestGetRunningBuildLogsForLegacyPipelineRunWithMatchingBuildPods(t *testing.T) {
+t.Parallel()
 	// https://github.com/jenkins-x/jx/issues/5171
 	testCaseDir := path.Join("test_data", "legacy_pipeline_run")
 	_, _, _, _, ns := getFakeClientsAndNs(t)
@@ -369,6 +380,7 @@ func TestGetRunningBuildLogsForLegacyPipelineRunWithMatchingBuildPods(t *testing
 }
 
 func TestStreamPipelinePersistentLogsNotInBucket(t *testing.T) {
+t.Parallel()
 	_, _, _, commonOptions, _ := getFakeClientsAndNs(t)
 	commonOptions.SkipAuthSecretsMerge = true
 
@@ -401,6 +413,7 @@ func TestStreamPipelinePersistentLogsNotInBucket(t *testing.T) {
 }
 
 func TestStreamPipelinePersistentLogsInUnsupportedBucketProvider(t *testing.T) {
+t.Parallel()
 	_, _, _, commonOptions, _ := getFakeClientsAndNs(t)
 	commonOptions.SkipAuthSecretsMerge = true
 	lch := make(chan LogLine)
@@ -422,6 +435,7 @@ func TestStreamPipelinePersistentLogsInUnsupportedBucketProvider(t *testing.T) {
 }
 
 func TestGetRunningBuildLogsWithMultipleStages(t *testing.T) {
+t.Parallel()
 	// https://github.com/jenkins-x/jx/issues/5171
 	testCaseDir := path.Join("test_data", "multiple_stages")
 	_, _, _, _, ns := getFakeClientsAndNs(t)
@@ -478,6 +492,7 @@ func TestGetRunningBuildLogsWithMultipleStages(t *testing.T) {
 }
 
 func TestGetRunningBuildLogsWithMultipleStagesWithFailureInFirstStage(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data", "multiple_stages_with_failure_in_first_stage")
 	_, _, _, _, ns := getFakeClientsAndNs(t)
 
@@ -514,6 +529,7 @@ func TestGetRunningBuildLogsWithMultipleStagesWithFailureInFirstStage(t *testing
 }
 
 func TestGetRunningBuildLogsWithMultipleStagesFailureActivityDoneRunNotDone(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data", "multiple_stages_failure_activity_done_run_not_done")
 	_, _, _, _, ns := getFakeClientsAndNs(t)
 
@@ -550,6 +566,7 @@ func TestGetRunningBuildLogsWithMultipleStagesFailureActivityDoneRunNotDone(t *t
 }
 
 func TestGetRunningBuildLogsMetapipelineAndPendingGenerated(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data", "metapipeline_and_pending_generated")
 	_, _, _, _, ns := getFakeClientsAndNs(t)
 
@@ -587,6 +604,7 @@ func TestGetRunningBuildLogsMetapipelineAndPendingGenerated(t *testing.T) {
 }
 
 func TestGetTektonPipelinesWithFailedAndRetriedPipeline(t *testing.T) {
+t.Parallel()
 	testCaseDir := path.Join("test_data", "failed_and_rerun")
 	jxClient, _, _, _, ns := getFakeClientsAndNs(t)
 

@@ -16,6 +16,7 @@ import (
 )
 
 func TestStepReportChart(t *testing.T) {
+t.Parallel()
 	dirName, err := ioutil.TempDir("", uuid.New().String())
 	defer os.Remove(dirName)
 	assert.NoError(t, err, "there shouldn't be any problem creating a temp dir")

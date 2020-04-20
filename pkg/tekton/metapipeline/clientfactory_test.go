@@ -25,6 +25,7 @@ type testTypeAndPullRef struct {
 }
 
 func Test_determine_branch_identifier_from_pull_refs(t *testing.T) {
+t.Parallel()
 	testCases := []testTypeAndPullRef{
 		{
 			ReleasePipeline, NewPullRefWithPullRequest("http://foo", "master", "0967f9ecd7dd2d0acf883c7656c9dc2ad2bf9815", PullRequestRef{}), "master", "",
@@ -52,6 +53,7 @@ func Test_determine_branch_identifier_from_pull_refs(t *testing.T) {
 }
 
 func Test_default_version_stream_and_url(t *testing.T) {
+t.Parallel()
 	ns := "jx"
 	jxClient := fake.NewSimpleClientset()
 
@@ -62,6 +64,7 @@ func Test_default_version_stream_and_url(t *testing.T) {
 }
 
 func Test_version_stream_and_url_from_team_setting(t *testing.T) {
+t.Parallel()
 	var jxObjects []runtime.Object
 	expectedURL := "https://github.com/jenkins-x/my-jenkins-x-versions.git"
 	expectedVersion := "v1.0.0"
@@ -83,6 +86,7 @@ func Test_version_stream_and_url_from_team_setting(t *testing.T) {
 }
 
 func Test_clone_version_stream_from_tag(t *testing.T) {
+t.Parallel()
 	ref := "v1.0.8"
 	dir, err := cloneVersionStream("https://github.com/jenkins-x/jenkins-x-versions.git", ref)
 	defer func() {
@@ -104,6 +108,7 @@ func Test_clone_version_stream_from_tag(t *testing.T) {
 }
 
 func Test_clone_version_stream_from_sha(t *testing.T) {
+t.Parallel()
 	// This ref is the HEAD on https://github.com/jenkins-x/jenkins-x-versions/pull/417, which is closed and won't change.
 	ref := "72d36667196e2bfbb52b8220d55ef79747283a5b"
 	dir, err := cloneVersionStream("https://github.com/jenkins-x/jenkins-x-versions.git", ref)
@@ -126,6 +131,7 @@ func Test_clone_version_stream_from_sha(t *testing.T) {
 }
 
 func Test_verify_pull_refs_on_activity(t *testing.T) {
+t.Parallel()
 	branchIdentifier := "master"
 	buildNumber := "1"
 	gitInfo, _ := gits.NewGitFake().Info("/acme")

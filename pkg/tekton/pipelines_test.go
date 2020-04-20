@@ -30,6 +30,7 @@ const (
 )
 
 func TestPipelineRunIsNotPendingCompletedRun(t *testing.T) {
+t.Parallel()
 	now := metav1.Now()
 	pr := &v1alpha1.PipelineRun{
 		ObjectMeta: metav1.ObjectMeta{
@@ -63,6 +64,7 @@ func TestPipelineRunIsNotPendingCompletedRun(t *testing.T) {
 }
 
 func TestPipelineRunIsNotPendingRunningSteps(t *testing.T) {
+t.Parallel()
 	taskRunStatusMap := make(map[string]*v1alpha1.PipelineRunTaskRunStatus)
 	taskRunStatusMap["faketaskrun"] = &v1alpha1.PipelineRunTaskRunStatus{
 		Status: &v1alpha1.TaskRunStatus{
@@ -100,6 +102,7 @@ func TestPipelineRunIsNotPendingRunningSteps(t *testing.T) {
 }
 
 func TestPipelineRunIsNotPendingWaitingSteps(t *testing.T) {
+t.Parallel()
 	taskRunStatusMap := make(map[string]*v1alpha1.PipelineRunTaskRunStatus)
 	taskRunStatusMap["faketaskrun"] = &v1alpha1.PipelineRunTaskRunStatus{
 		Status: &v1alpha1.TaskRunStatus{
@@ -139,6 +142,7 @@ func TestPipelineRunIsNotPendingWaitingSteps(t *testing.T) {
 }
 
 func TestPipelineRunIsNotPendingWaitingStepsInPodInitializing(t *testing.T) {
+t.Parallel()
 	taskRunStatusMap := make(map[string]*v1alpha1.PipelineRunTaskRunStatus)
 	taskRunStatusMap["faketaskrun"] = &v1alpha1.PipelineRunTaskRunStatus{
 		Status: &v1alpha1.TaskRunStatus{
@@ -178,6 +182,7 @@ func TestPipelineRunIsNotPendingWaitingStepsInPodInitializing(t *testing.T) {
 }
 
 func TestGenerateNextBuildNumber(t *testing.T) {
+t.Parallel()
 	testCases := []struct {
 		name                string
 		expectedBuildNumber string
@@ -222,6 +227,7 @@ func TestGenerateNextBuildNumber(t *testing.T) {
 }
 
 func TestStructureForPipelineRun(t *testing.T) {
+t.Parallel()
 	pipelineName := "some-pipeline-1"
 	unrelatedSuffix := "-not-related"
 

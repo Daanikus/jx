@@ -24,6 +24,7 @@ var (
 )
 
 func TestPatchUpdateEnvironmentRoleBindingNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testEnvironmentRoleBinding)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -49,6 +50,7 @@ func TestPatchUpdateEnvironmentRoleBindingNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateEnvironmentRoleBindingWithChange(t *testing.T) {
+t.Parallel()
 	subject := "snafu"
 	clonedEnvironmentRoleBinding := testEnvironmentRoleBinding.DeepCopy()
 	clonedEnvironmentRoleBinding.Spec.Subjects = []rbacv1.Subject{
@@ -87,6 +89,7 @@ func TestPatchUpdateEnvironmentRoleBindingWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateEnvironmentRoleBindingWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -106,6 +109,7 @@ func TestPatchUpdateEnvironmentRoleBindingWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateEnvironmentRoleBindingWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testEnvironmentRoleBinding)

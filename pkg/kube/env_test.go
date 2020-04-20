@@ -127,6 +127,7 @@ func TestReplaceMakeVariable(t *testing.T) {
 }
 
 func TestGetDevNamespace(t *testing.T) {
+t.Parallel()
 	namespace := &k8sv1.Namespace{
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      "jx-testing",
@@ -145,6 +146,7 @@ func TestGetDevNamespace(t *testing.T) {
 }
 
 func TestCreateEnvironmentSurvey(t *testing.T) {
+t.Parallel()
 	tests.SkipForWindows(t, "go-expect does not work on Windows. ")
 	// namespace fixture
 	namespace := &v1.Namespace{

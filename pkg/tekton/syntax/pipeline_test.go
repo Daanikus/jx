@@ -34,6 +34,7 @@ var (
 
 // TODO: Try to write some helper functions to make Pipeline and Task expect building less bloody verbose.
 func TestParseJenkinsfileYaml(t *testing.T) {
+t.Parallel()
 	testVersionsDir := filepath.Join("test_data", "stable_versions")
 	resolvedGitMergeImage, err := versionstream.ResolveDockerImage(testVersionsDir, syntax.GitMergeImage)
 	assert.NoError(t, err)
@@ -1471,6 +1472,7 @@ func TestParseJenkinsfileYaml(t *testing.T) {
 }
 
 func TestFailedValidation(t *testing.T) {
+t.Parallel()
 	ctx := context.Background()
 	tests := []struct {
 		name          string
@@ -1852,6 +1854,7 @@ func getOverridesTestContainerOptions() *corev1.Container {
 }
 
 func TestApplyNonStepOverridesToPipeline(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		name     string
 		override *syntax.PipelineOverride
@@ -1999,6 +2002,7 @@ func TestApplyNonStepOverridesToPipeline(t *testing.T) {
 }
 
 func TestRfc1035LabelMangling(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		name     string
 		input    string
@@ -2077,6 +2081,7 @@ func TestRfc1035LabelMangling(t *testing.T) {
 }
 
 func TestParsedPipelineHelpers(t *testing.T) {
+t.Parallel()
 	input := sh.ParsedPipeline(
 		sh.PipelineAgent("some-image"),
 		sh.PipelineOptions(

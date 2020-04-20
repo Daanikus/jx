@@ -9,6 +9,7 @@ import (
 )
 
 func Test_debug_log_is_written_to_output_when_corresponding_level_is_set(t *testing.T) {
+t.Parallel()
 	err := SetLevel("info")
 	assert.NoError(t, err)
 
@@ -23,6 +24,7 @@ func Test_debug_log_is_written_to_output_when_corresponding_level_is_set(t *test
 }
 
 func Test_setting_unknown_log_level_returns_error(t *testing.T) {
+t.Parallel()
 	err := SetLevel("foo")
 	assert.Error(t, err)
 	assert.Equal(t, "Invalid log level 'foo'", err.Error())

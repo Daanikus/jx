@@ -20,6 +20,7 @@ import (
 )
 
 func TestUpdateSimpleDependencyMatrix(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "")
 	assert.NoError(t, err)
 	matrixDir := filepath.Join(dir, dependencymatrix.DependencyMatrixDirName)
@@ -58,6 +59,7 @@ func TestUpdateSimpleDependencyMatrix(t *testing.T) {
 }
 
 func TestUpdateOneDegreeDependencyMatrix(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "")
 	assert.NoError(t, err)
 	matrixDir := filepath.Join(dir, dependencymatrix.DependencyMatrixDirName)
@@ -110,6 +112,7 @@ func TestUpdateOneDegreeDependencyMatrix(t *testing.T) {
 }
 
 func TestUpdateTwoPathsDependencyMatrix(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "")
 	assert.NoError(t, err)
 	matrixDir := filepath.Join(dir, dependencymatrix.DependencyMatrixDirName)
@@ -162,6 +165,7 @@ func TestUpdateTwoPathsDependencyMatrix(t *testing.T) {
 }
 
 func TestUpdateTwoDegreeDependencyMatrix(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "")
 	assert.NoError(t, err)
 	matrixDir := filepath.Join(dir, dependencymatrix.DependencyMatrixDirName)
@@ -227,6 +231,7 @@ func TestUpdateTwoDegreeDependencyMatrix(t *testing.T) {
 }
 
 func TestCreateDependencyMatrix(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "")
 	assert.NoError(t, err)
 	matrixDir := filepath.Join(dir, dependencymatrix.DependencyMatrixDirName)
@@ -261,6 +266,7 @@ func TestCreateDependencyMatrix(t *testing.T) {
 }
 
 func TestFindVersionForDependency(t *testing.T) {
+t.Parallel()
 	dir := filepath.Join("testdata", "two_degree_matrix")
 
 	matrix, err := dependencymatrix.LoadDependencyMatrix(dir)

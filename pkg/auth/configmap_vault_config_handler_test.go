@@ -18,6 +18,7 @@ import (
 )
 
 func TestConfigMapVaultConfigSaver(t *testing.T) {
+t.Parallel()
 	ns := "test"
 	secretName := "gitAuth.yaml" // #nosec
 	authFile := path.Join("test_data", "configmap_vault_auth.yaml")
@@ -62,6 +63,7 @@ func TestConfigMapVaultConfigSaver(t *testing.T) {
 }
 
 func TestConfigMapVaultConfigSaverWithoutVaultURIs(t *testing.T) {
+t.Parallel()
 	ns := "test"
 	secretName := "gitAuth.yaml" // #nosec
 	authFile := path.Join("test_data", "configmap_withoutvault_auth.yaml")
@@ -102,6 +104,7 @@ func TestConfigMapVaultConfigSaverWithoutVaultURIs(t *testing.T) {
 }
 
 func TestConfigMapVaultConfigSaverWithoutConfigMapLabel(t *testing.T) {
+t.Parallel()
 	ns := "test"
 	secretName := "gitAuth.yaml" // #nosec
 	authFile := path.Join("test_data", "configmap_vault_auth.yaml")
@@ -142,6 +145,7 @@ func TestConfigMapVaultConfigSaverWithoutConfigMapLabel(t *testing.T) {
 }
 
 func TestConfigMapVaultConfigSaverWithoutConfigMapData(t *testing.T) {
+t.Parallel()
 	ns := "test"
 	secretName := "gitAuth.yaml" // #nosec
 	authFile := path.Join("test_data", "configmap_vault_auth.yaml")
@@ -183,6 +187,7 @@ func TestConfigMapVaultConfigSaverWithoutConfigMapData(t *testing.T) {
 }
 
 func TestConfigMapVaultConfigSaverWithCorrupted(t *testing.T) {
+t.Parallel()
 	ns := "test"
 	secretName := "gitAuth.yaml" // #nosec
 	authFile := path.Join("test_data", "configmap_vault_corrupted_auth.yaml")

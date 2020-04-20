@@ -17,6 +17,7 @@ import (
 )
 
 func TestBuildPackInitClone(t *testing.T) {
+t.Parallel()
 	mainRepo, err := ioutil.TempDir("", uuid.New().String())
 	assert.NoError(t, err)
 

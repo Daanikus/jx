@@ -2083,7 +2083,6 @@ func TestPushRepoAndCreatePullRequest(t *testing.T) {
 }
 
 func TestGetGitInfoFromDirectory(t *testing.T) {
-	t.Parallel()
 	gitter := gits.NewGitCLI()
 	owner := "fakeowner"
 	repo := "fakerepo"
@@ -2113,7 +2112,6 @@ func TestGetGitInfoFromDirectory(t *testing.T) {
 }
 
 func TestGetGitInfoFromDirectoryNoGit(t *testing.T) {
-	t.Parallel()
 	gitter := gits.NewGitCLI()
 	dir, err := ioutil.TempDir("", "")
 	defer os.RemoveAll(dir)

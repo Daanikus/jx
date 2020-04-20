@@ -9,6 +9,7 @@ import (
 )
 
 func Test_pull_ref_to_string(t *testing.T) {
+t.Parallel()
 	pullRef := NewPullRef("https://github.com/jenkins-x/jx", "master", "1234567")
 	toString := pullRef.String()
 

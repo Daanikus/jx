@@ -15,7 +15,6 @@ import (
 )
 
 func TestGetSimplifiedClusterName(t *testing.T) {
-	t.Parallel()
 	simpleName := cluster.SimplifiedClusterName("gke_jenkinsx-dev_europe-west1-b_my-cluster-name")
 
 	assert.Equal(t, "my-cluster-name", simpleName)

@@ -23,6 +23,7 @@ var (
 )
 
 func TestPatchUpdateSourceRepositoryNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testSourceRepository)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -48,6 +49,7 @@ func TestPatchUpdateSourceRepositoryNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateSourceRepositoryWithChange(t *testing.T) {
+t.Parallel()
 	description := "my repo"
 	clonedSourceRepository := testSourceRepository.DeepCopy()
 	clonedSourceRepository.Spec.Description = description
@@ -82,6 +84,7 @@ func TestPatchUpdateSourceRepositoryWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateSourceRepositoryWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -101,6 +104,7 @@ func TestPatchUpdateSourceRepositoryWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateSourceRepositoryWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testSourceRepository)

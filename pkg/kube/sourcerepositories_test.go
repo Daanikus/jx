@@ -19,6 +19,7 @@ const (
 )
 
 func TestFindSourceRepository(t *testing.T) {
+t.Parallel()
 	existingRepos := &v1.SourceRepositoryList{
 		Items: []v1.SourceRepository{
 			// Standard auto-created source repository
@@ -52,6 +53,7 @@ func TestFindSourceRepository(t *testing.T) {
 }
 
 func TestGetOrCreateSourceRepositories(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		name         string
 		org          string

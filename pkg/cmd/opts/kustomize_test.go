@@ -20,6 +20,7 @@ var versionTests = []struct {
 }
 
 func Test_isInstalledKustomizeVersionSupported(t *testing.T) {
+t.Parallel()
 	for _, versionTest := range versionTests {
 		t.Run(versionTest.currentVersion, func(t *testing.T) {
 			supported, err := isInstalledKustomizeVersionSupported(versionTest.currentVersion, versionTest.stableVersion)

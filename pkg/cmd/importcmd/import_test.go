@@ -166,6 +166,7 @@ func TestCreateProwOwnersAliasesFileCreateWhenDoesNotExistAndNoGitUserSet(t *tes
 }
 
 func TestImportOptions_GetOrganisation(t *testing.T) {
+t.Parallel()
 	tests := []struct {
 		name    string
 		options ImportOptions

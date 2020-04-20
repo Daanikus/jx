@@ -12,6 +12,7 @@ import (
 )
 
 func TestSplitBucketURL(t *testing.T) {
+t.Parallel()
 	assertSplitBucketURL(t, "s3://foo/my/file", "s3://foo", "my/file")
 	assertSplitBucketURL(t, "gs://mybucket/beer/cheese.txt?param=1234", "gs://mybucket?param=1234", "beer/cheese.txt")
 

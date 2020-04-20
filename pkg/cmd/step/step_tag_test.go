@@ -95,6 +95,7 @@ func TestStepTagCharts(t *testing.T) {
 }
 
 func TestDefaultChartValueRepositoryValidName(t *testing.T) {
+t.Parallel()
 	f, err := ioutil.TempDir("", "test-step-tag-valid-name")
 	assert.NoError(t, err)
 	defer os.RemoveAll(f)

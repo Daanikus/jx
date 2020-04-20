@@ -14,6 +14,7 @@ import (
 )
 
 func TestCollapseDependencyUpdates(t *testing.T) {
+t.Parallel()
 	type args struct {
 		data string
 	}

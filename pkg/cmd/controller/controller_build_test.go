@@ -26,6 +26,7 @@ import (
 )
 
 func TestDigitSuffix(t *testing.T) {
+t.Parallel()
 	testData := map[string]string{
 		"nosuffix": "",
 		"build1":   "1",
@@ -39,6 +40,7 @@ func TestDigitSuffix(t *testing.T) {
 }
 
 func TestCompleteBuildSourceInfo(t *testing.T) {
+t.Parallel()
 	o := &ControllerBuildOptions{
 		gitHubProvider: gits.NewFakeProvider(getFakeRepository()),
 		Namespace:      "test",
@@ -91,6 +93,7 @@ func TestCompleteBuildSourceInfo(t *testing.T) {
 }
 
 func TestUpdateForStage(t *testing.T) {
+t.Parallel()
 	pod := tekton_helpers_test.AssertLoadSinglePod(t, path.Join("test_data", "controller_build", "update_stage_info"))
 	si := &tekton.StageInfo{
 		Name:           "ci",
@@ -145,6 +148,7 @@ func TestUpdateForStage(t *testing.T) {
 }
 
 func TestCreateReportTargetURL(t *testing.T) {
+t.Parallel()
 	params := ReportParams{
 		Owner:      "jstrachan",
 		Repository: "myapp",
@@ -159,6 +163,7 @@ func TestCreateReportTargetURL(t *testing.T) {
 }
 
 func TestUpdateForStagePreTekton051(t *testing.T) {
+t.Parallel()
 	pod := tekton_helpers_test.AssertLoadSinglePod(t, path.Join("test_data", "controller_build", "update_stage_info_pre_tekton_0.5.1"))
 	si := &tekton.StageInfo{
 		Name:           "ci",
@@ -204,6 +209,7 @@ func TestUpdateForStagePreTekton051(t *testing.T) {
 }
 
 func TestOnPipelinePod(t *testing.T) {
+t.Parallel()
 	testCases := []struct {
 		name    string
 		podName string

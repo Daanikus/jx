@@ -32,6 +32,7 @@ import (
 )
 
 func TestCreatePullRequestUpdateVersionFilesFn(t *testing.T) {
+t.Parallel()
 	commonOpts := &opts.CommonOptions{}
 	commonOpts.SetFactory(fake.NewFakeFactory())
 

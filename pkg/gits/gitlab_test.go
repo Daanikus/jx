@@ -232,6 +232,7 @@ func (suite *GitlabProviderSuite) TestUpdatePullRequest() {
 // In order for 'go test' to run this suite, we need to create
 // a normal test function and pass our suite to suite.Run
 func TestGitlabProviderSuite(t *testing.T) {
+t.Parallel()
 	if testing.Short() {
 		t.Skip("skipping TestGitlabProviderSuite in short mode")
 	} else {

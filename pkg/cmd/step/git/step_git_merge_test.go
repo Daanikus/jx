@@ -20,6 +20,7 @@ import (
 )
 
 func TestStepGitMerge(t *testing.T) {
+t.Parallel()
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Step Git Merge Suite")
 }

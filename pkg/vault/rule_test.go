@@ -11,6 +11,7 @@ import (
 )
 
 func TestEncodeVaultPathRule(t *testing.T) {
+t.Parallel()
 	tests := map[string]struct {
 		rule *vault.PathRule
 		err  bool

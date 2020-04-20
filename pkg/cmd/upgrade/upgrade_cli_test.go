@@ -85,12 +85,14 @@ var sampleBrewInfo = `[
 ]`
 
 func TestLatestJxBrewVersion(t *testing.T) {
+t.Parallel()
 	version, err := brew.LatestJxBrewVersion(sampleBrewInfo)
 	assert.NoError(t, err)
 	assert.Equal(t, "2.0.181", version)
 }
 
 func TestNeedsUpgrade(t *testing.T) {
+t.Parallel()
 	type testData struct {
 		current               string
 		latest                string
@@ -123,6 +125,7 @@ func TestNeedsUpgrade(t *testing.T) {
 }
 
 func TestVersionCheckWhenCurrentVersionIsGreaterThanReleaseVersion(t *testing.T) {
+t.Parallel()
 	jxVersion := semver.Version{Major: 1, Minor: 3, Patch: 153}
 	version.Map["version"] = "1.4.0"
 	opts := &UpgradeCLIOptions{
@@ -136,6 +139,7 @@ func TestVersionCheckWhenCurrentVersionIsGreaterThanReleaseVersion(t *testing.T)
 }
 
 func TestVersionCheckWhenCurrentVersionIsEqualToReleaseVersion(t *testing.T) {
+t.Parallel()
 	jxVersion := semver.Version{Major: 1, Minor: 2, Patch: 3}
 	version.Map["version"] = "1.2.3"
 	opts := &UpgradeCLIOptions{
@@ -149,6 +153,7 @@ func TestVersionCheckWhenCurrentVersionIsEqualToReleaseVersion(t *testing.T) {
 }
 
 func TestVersionCheckWhenCurrentVersionIsLessThanReleaseVersion(t *testing.T) {
+t.Parallel()
 	jxVersion := semver.Version{Major: 1, Minor: 3, Patch: 153}
 	version.Map["version"] = "1.0.0"
 	opts := &UpgradeCLIOptions{
@@ -162,6 +167,7 @@ func TestVersionCheckWhenCurrentVersionIsLessThanReleaseVersion(t *testing.T) {
 }
 
 func TestVersionCheckWhenCurrentVersionIsEqualToReleaseVersionWithPatch(t *testing.T) {
+t.Parallel()
 	prVersions := []semver.PRVersion{}
 	prVersions = append(prVersions, semver.PRVersion{VersionStr: "dev"})
 	jxVersion := semver.Version{Major: 1, Minor: 2, Patch: 3, Pre: prVersions, Build: []string(nil)}
@@ -177,6 +183,7 @@ func TestVersionCheckWhenCurrentVersionIsEqualToReleaseVersionWithPatch(t *testi
 }
 
 func TestVersionCheckWhenCurrentVersionWithPatchIsEqualToReleaseVersion(t *testing.T) {
+t.Parallel()
 	jxVersion := semver.Version{Major: 1, Minor: 2, Patch: 3}
 	version.Map["version"] = "1.2.3-dev+6a8285f4"
 	opts := &UpgradeCLIOptions{
@@ -190,6 +197,7 @@ func TestVersionCheckWhenCurrentVersionWithPatchIsEqualToReleaseVersion(t *testi
 }
 
 func TestVersionCheckWhenCurrentVersionWithPatchIsLessThanReleaseVersion(t *testing.T) {
+t.Parallel()
 	jxVersion := semver.Version{Major: 1, Minor: 2, Patch: 3}
 	version.Map["version"] = "1.2.2-dev+6a8285f4"
 	opts := &UpgradeCLIOptions{

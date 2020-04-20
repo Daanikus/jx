@@ -23,6 +23,7 @@ var (
 )
 
 func TestPatchUpdateBuildPackNoModification(t *testing.T) {
+t.Parallel()
 	json, err := json.Marshal(testBuildPack)
 	if err != nil {
 		assert.Failf(t, "unable to marshal test instance: %s", err.Error())
@@ -48,6 +49,7 @@ func TestPatchUpdateBuildPackNoModification(t *testing.T) {
 }
 
 func TestPatchUpdateBuildPackWithChange(t *testing.T) {
+t.Parallel()
 	url := "git@github.com:jenkins-x/jx.git"
 	clonedBuildPack := testBuildPack.DeepCopy()
 	clonedBuildPack.Spec.GitURL = url
@@ -82,6 +84,7 @@ func TestPatchUpdateBuildPackWithChange(t *testing.T) {
 }
 
 func TestPatchUpdateBuildPackWithErrorInGet(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during GET"
 	get := func(*http.Request) (*http.Response, error) {
 		return nil, errors.New(errorMessage)
@@ -101,6 +104,7 @@ func TestPatchUpdateBuildPackWithErrorInGet(t *testing.T) {
 }
 
 func TestPatchUpdateBuildPackWithErrorInPatch(t *testing.T) {
+t.Parallel()
 	errorMessage := "error during PATCH"
 	get := func(*http.Request) (*http.Response, error) {
 		json, err := json.Marshal(testBuildPack)

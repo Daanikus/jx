@@ -27,6 +27,7 @@ import (
 )
 
 func TestStepVerifyEnvironmentsOptions_StoreRequirementsInTeamSettings(t *testing.T) {
+t.Parallel()
 	commonOpts := opts.NewCommonOptionsWithFactory(fake.NewFakeFactory())
 	options := &commonOpts
 	testhelpers.ConfigureTestOptions(options, options.Git(), options.Helm())
@@ -66,6 +67,7 @@ func TestStepVerifyEnvironmentsOptions_StoreRequirementsInTeamSettings(t *testin
 }
 
 func TestStepVerifyEnvironmentsOptions_StoreRequirementsConfigMapWithModification(t *testing.T) {
+t.Parallel()
 	commonOpts := opts.NewCommonOptionsWithFactory(fake.NewFakeFactory())
 	options := &commonOpts
 	testhelpers.ConfigureTestOptions(options, options.Git(), options.Helm())
@@ -120,6 +122,7 @@ func TestStepVerifyEnvironmentsOptions_StoreRequirementsConfigMapWithModificatio
 }
 
 func Test_ReadEnvironment(t *testing.T) {
+t.Parallel()
 	origConfigRepoURL, foundConfigRepoURLEnvKey := os.LookupEnv(boot.ConfigRepoURLEnvVarName)
 	origConfigRepoRef, foundConfigRepoRefEnvKey := os.LookupEnv(boot.ConfigBaseRefEnvVarName)
 	defer func() {
@@ -179,6 +182,7 @@ func Test_ReadEnvironment(t *testing.T) {
 }
 
 func Test_ModifyPipelineGitEnvVars(t *testing.T) {
+t.Parallel()
 	origGitAuthorName, foundGitAuthorName := os.LookupEnv(gitAuthorNameEnvKey)
 	origGitAuthorEmail, foundGitAuthorEmail := os.LookupEnv(gitAuthorEmailEnvKey)
 	origGitCommitterName, foundGitCommitterName := os.LookupEnv(gitCommitterNameEnvKey)
@@ -251,6 +255,7 @@ func Test_ModifyPipelineGitEnvVars(t *testing.T) {
 }
 
 func Test_getEnvironmentURLTemplate(t *testing.T) {
+t.Parallel()
 	var tests = []struct {
 		name             string
 		cfg              *config.EnvironmentConfig

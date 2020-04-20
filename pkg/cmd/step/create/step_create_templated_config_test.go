@@ -44,6 +44,7 @@ cluster:
 `
 
 func TestCreateTemplatedConfigCommand(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "step-create-templated-config")
 	assert.NoError(t, err, "unable to create a temp directory for test")
 	defer os.RemoveAll(dir)
@@ -83,6 +84,7 @@ func TestCreateTemplatedConfigCommand(t *testing.T) {
 }
 
 func TestCreateTemplatedConfigCommandWithoutRequirements(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "step-create-templated-config-empty")
 	assert.NoError(t, err, "unable to create a second temp directory for test")
 	defer os.RemoveAll(dir)
@@ -107,6 +109,7 @@ func TestCreateTemplatedConfigCommandWithoutRequirements(t *testing.T) {
 }
 
 func TestCreateTemplatedConfigCommandWithRequirementsInOtherDir(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "step-create-templated-config")
 	assert.NoError(t, err, "unable to create a temp directory for test")
 	defer os.RemoveAll(dir)
@@ -150,6 +153,7 @@ func TestCreateTemplatedConfigCommandWithRequirementsInOtherDir(t *testing.T) {
 }
 
 func TestCreateTemplatedConfigCommandWithParameters(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "step-create-templated-config")
 	assert.NoError(t, err, "unable to create a temp directory for test")
 	defer os.RemoveAll(dir)
@@ -194,6 +198,7 @@ func TestCreateTemplatedConfigCommandWithParameters(t *testing.T) {
 }
 
 func TestCreateTemplatedConfigCommandWithWrongParametersFilename(t *testing.T) {
+t.Parallel()
 	dir, err := ioutil.TempDir("", "step-create-templated-config")
 	assert.NoError(t, err, "unable to create a temp directory for test")
 	defer os.RemoveAll(dir)

@@ -1,7 +1,5 @@
 module github.com/jenkins-x/jx
 
-go 1.14
-
 require (
 	code.gitea.io/sdk v0.0.0-20180702024448-79a281c4e34a
 	contrib.go.opencensus.io/exporter/prometheus v0.1.0 // indirect
